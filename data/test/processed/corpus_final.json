@@ -1,0 +1,758 @@
+[
+  {
+    "page_content": "| Fan Yang<br/>Harbin Institute of Technology (Shenzhen)<br/>25b951055\\@stu.hit.edu.cn | Kaihao Zhang<br/>Harbin Institute of Technology (Shenzhen)<br/>super.khzhang\\@gmail.com |\n| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "*Understanding high-resolution images remains a significant challenge for multimodal large language models (MLLMs). Recent study address this issue by dividing the image into smaller crops and computing the semantic similarity between each crop and a query using a pretrained retrieval-augmented generation (RAG) model. The most relevant crops are then selected to localize the target object and suppress irrelevant information. However, such crop-based processing can fragment complete objects across multiple crops, thereby disrupting the computation of semantic similarity. In our experiments, we find that image crops of objects with different sizes are better handled at different resolutions. Based on this observation, we propose Multi-resolution Retrieval-Detection (MRD), a trainingfree framework for high-resolution image understanding. To address the issue of semantic similarity bias caused by objects being split across different image crops, we propose a multi-resolution semantic",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "Abstract",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "framework for high-resolution image understanding. To address the issue of semantic similarity bias caused by objects being split across different image crops, we propose a multi-resolution semantic fusion method, which integrates semantic similarity maps obtained at different resolutions to produce more accurate semantic information and preserve the integrity of target objects. Furthermore, to achieve direct localization of target objects at a global scale, we introduce an open-vocabulary object detection (OVD) model that identifies object regions using a sliding-window approach.Experiments on high-resolution image understanding benchmarks using different MLLMs demonstrate the effectiveness of our approach.*",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "Abstract",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Multimodal Large Language Models (MLLMs) have demonstrated significant advancements in integrating and interpreting visual and linguistic information, enabling robust capabilities in vision-language understanding, reasoning, and interactive tasks [25]. By leveraging visual signals, these models can process and decipher complex visual information, forming a bridge between pixel-level data and  \n| **Query: Is the red vehicle on the left or right side of the image?**<br/>**High-Resolution Image** |                                                                          | **Semantic Map**<br/>**RAG** |                   |\n| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------- | ----------------- |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| MLLM                                                                                                | OVD                                                                      |                              | **Detection Map** |\n|                                                                                                     | The red vehicle is on the<br/>right side of the image.<br/>**RE-Search** |                              |                   |  \nFigure 1. Overview of the proposed Multi-resolution Retrieval-Detection framework, which uses RAG and OVD to obtain semantic similarity map and detection confidence map respectively. By integrating the two, the target objects can be localized more accurately.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "semantic interpretation [17, 20]. However, a common practice among most MLLMs is to process input images at fixed and pre-defined resolutions [1, 13, 14]. While this uniform input pipeline simplifies model architecture and reduces computational overhead, it introduces substantial limitations. Specifically, resizing high-resolution (HR) real-world images to a fixed low resolution often leads to shape distortion and blurring, which degrades the quality of fine-grained visual details. Recent studies [11, 19, 22, 24, 29, 30] indicate that existing methods remain unsatisfactory for highresolution image tasks. This is clearly demonstrated by their suboptimal results on dedicated high-resolution image understanding benchmarks [21, 24].",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "To address this limitation, improving the high-resolution image perception capability of MLLMs has become an emerging research focus. A common \"locate-and-zoomin\" strategy is widely adopted to enhance detail perception in models. Although training-based approaches such as Supervised Fine-Tuning (SFT) [18] and Reinforcement",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Learning (RL) [30] can effectively identify relevant regions, they are hampered by critical limitations, including high computational costs, long training cycles, and poor cross-architecture transferability, which curtails their scalability and practical application. In contrast, training-free methods [11, 19, 29] automatically locate regions by using attention mechanisms or tree-based search, without requiring the construction of the dataset or the fine-tuning of the model. Despite employing a top-down search strategy from high to low resolution, these methods face significant limitations. A primary issue is the model's inadequate perception of small objects during the initial search stage [19, 21], which frequently leads to the generation of erroneous search paths.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Recently, Inspired by the success of Retrieval-Augmented Generation (RAG) for enabling long-context understanding in general LLMs [9], Wang et al. [22] introduced Retrieval-Augmented Perception (RAP) — a training-free framework designed to enhance MLLMs' perception of high-resolution images. RAP extends this paradigm to the visual domain, achieving significant performance improvement on high-resolution benchmarks. The RAP framework consists of three key components: First, the Visual Retrieval module employs a pre-trained vision RAG model, VisRAG, to compute semantic similarity between the query and different image regions (crops), retrieving the most relevant ones to reduce noise. Next, the Spatial-Awareness Layout module preserves the original relative spatial relationships among the retrieved crops when composing them into the model input, maintaining spatial coherence. Finally, the Adaptive Retrieval-Exploration Search (RE-Search) module dynamically determines the optimal number of",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "crops when composing them into the model input, maintaining spatial coherence. Finally, the Adaptive Retrieval-Exploration Search (RE-Search) module dynamically determines the optimal number of retrieved crops by constructing a Retrieval-Exploration Tree (RE-Tree), balancing information sufficiency with computational efficiency.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Despite its promise, the RAP method suffers from several inherent limitations. First, the patching operation can fragment large objects across multiple disjointed crops, disrupting their holistic semantics and leading to biased similarity calculations. Our empirical observations confirm that some patches semantically irrelevant to the query can obtain abnormally high similarity scores. Second, the patch resolution is a critical yet difficult-to-tune hyperparameter: overly large patches introduce redundant background information, while overly small ones exacerbate object fragmentation. Experiments show that the choice of resolution significantly impacts performance. Third, in high-resolution images with cluttered backgrounds, the similarity measure is prone to false positives, where background regions may attain higher similarity than those containing the actual target objects, severely hampering recognition.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "To tackle these challenges, we propose a novel Multi-resolution Retrieval-Detection (MRD) framework, based on RAP to improve retrieval quality and localization accuracy through two key techniques:  \n• Multi-resolution Semantic Fusion: To mitigate the bias inherent in single-resolution patching, we design a simple yet effective fusion strategy. It computes semantic similarities across multiple proportional resolutions and performs consistency-based fusion to calibrate the results, yielding a more robust and accurate relevance estimation that alleviates semantic deviations caused by object fragmentation.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "• Open-vocabulary Detector Enhancement: For more precise target localization, we incorporate an advanced open-vocabulary object detector, LLMDet [7]. First, we leverage the in-context learning capability of LLMs to extract target concepts from the query, defining the categories for the detector. Subsequently, a sliding window mechanism is employed to traverse the entire high-resolution image, detecting target objects within each window to generate a confidence map indicating target presence.  \nFinally, the calibrated multi-resolution semantic similarity is augmented by the object detection confidence. This synergistic fusion effectively amplifies the response in true target regions, enabling faster and more accurate localization of critical areas during subsequent retrieval, thereby guiding the MLLM toward more reliable inference.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "We conduct extensive experiments on several high-resolution benchmarks, including V* [24], HRBench-4K, and HRBench-8K [21], utilizing various MLLMs such as LLaVA-ov and LLaVA-v1.5. The results demonstrate that our MRD framework surpasses all existing training-free methods and achieves state-of-the-art performance on both single-object and multi-object retrieval and recognition tasks, with particularly notable gains on single-object tasks.  \nOur contributions are summarized as follows:  \n• To the best of our knowledge, this is the first work that systematically leverages an open-vocabulary object detector to enhance MLLMs' understanding of high-resolution images. Experiments validate that the detector provides precise target localization, effectively suppressing interference from irrelevant regions.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "• We propose MRD, a training-free and generic framework. It innovatively corrects semantic similarity via a multi-resolution fusion strategy and integrates open-set detection results to enhance target regions, creating a synergistic effect.  \n• Comprehensive experiments validate the effectiveness and generalization of our method. It achieves leading performance on both single-object and multi-object tasks across different MLLMs and high-resolution benchmarks.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "1. Introduction",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "MLLMs have rapidly advanced as powerful foundation models capable of understanding and generating multimodal content across diverse vision-language tasks [25, 28]. Early MLLM architectures generally adopt fixed-resolution vision encoders—such as 224 × 224 or 448 × 448 ViTs [2, 12–14]. While this design simplifies training and computation, it inevitably requires resizing or cropping high-resolution (HR) images, thereby discarding fine-grained visual details crucial for tasks such as fine-grained recognition, dense reasoning, or detecting small objects.  \nTo enhance high-resolution image understanding without proportionally increasing the computational burden from visual tokens, several studies have integrated high-resolution visual encoders into MLLMs. For example, Vary [23] and Deepseek-VL [15] incorporate the SAM encoder [10] to improve model performance on HR images.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "2. Related Work",
+      "sous_section": "2.1. Multimodal Large Language Models",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Alternatively, another line of work introduced Native/Dynamic-Resolution MLLMs that processes images at their native resolution. The core idea is to generate a variable-length sequence of visual tokens that adapts to the original dimensions of the input image, thereby preserving spatial fidelity and high-frequency details. These models employ various mechanisms to handle the resulting long sequences and computational complexity, including sliding window attention, dynamic masking, and patch-based encoding strategies. Representative works in this category have demonstrated significant progress. For instance, the InternVL series [4, 6, 31] adopts a strategy of splitting a high-resolution image into multiple fixed-size patches. In contrast, models like Qwen2.5-VL [2, 3] take an end-to-end approach by training a ViT directly on native-resolution images. This allows the model to embed the entire image into a single, coherent token sequence in one forward pass, potentially leading to better",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "2. Related Work",
+      "sous_section": "2.1. Multimodal Large Language Models",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "by training a ViT directly on native-resolution images. This allows the model to embed the entire image into a single, coherent token sequence in one forward pass, potentially leading to better global context understanding.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "2. Related Work",
+      "sous_section": "2.1. Multimodal Large Language Models",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Multimodal large language models (MLLMs) have made substantial progress in recent years; however, they continue to face challenges in accurately recognizing and interpreting fine-grained details within high-resolution (HR) images [21?]. To enhance the capability of MLLMs in high-resolution image understanding, existing studies generally follow two main directions. Training-based approaches rely on supervised fine-tuning (SFT) [18, 24] or reinforcement learning (RL) [30], but such methods often compromise the model's generalization ability on broad vision–language tasks. In contrast, training-free approaches [11, 19, 21, 22]typically perform hierarchical or tree-based search to localize target regions. However, these methods tend to suffer from low efficiency and may fail to retain all target objects during the search process, particularly in multi-object scenarios.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "2. Related Work",
+      "sous_section": "2.2. High-Resolution Image Understanding",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "In this section, We first conduct an analysis of the relationship between the resolution of image crops and the performance of MLLMs in subsection 3.2. The experimental results indicate that using different resolution has a significant impact on MLLMs to analyze HR images. Objects of different sizes are suitable for different resolutions. Inspired by this we propose the MRD framework.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "This section presents the pipeline for integrating Retrieval-Augmented Generation (RAG) into Multimodal Large Language Models (MLLMs) to calculate the semantic similarity scores between the query embedding and images crops from HR images. Given an HR image, we first partition it collection of image patches, denoted as $$P = \\{p_1, p_2, \\ldots, p_n\\}$$, where $$n$$ is the total number of image crops. Following the approach of Yu et al. [27], the textual query and each image crop are encoded independently using the text and image encoders of a Vision-Language Model (VLM), producing a sequence of hidden representations. The semantic similarity score between the query embedding and each image crop embedding is then computed. Specifically, the similarity score $$s(q, p_i)$$ for the i-th crop is calculated by the cosine similarity of the query and image crop embeddings:  \n$$s(q, p_i) = \\frac{1}{2} \\cdot (1 + \\frac{q \\cdot p_i}{\\|q\\| \\cdot \\|p_i\\|})$$\n(1)",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.1. Semantic Similarity",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "$$s(q, p_i) = \\frac{1}{2} \\cdot (1 + \\frac{q \\cdot p_i}{\\|q\\| \\cdot \\|p_i\\|})$$\n(1)  \nBased on these scores, the top $$K$$ most relevant image crops are selected and provided to the MLLM to support detailed understanding of the high-resolution input.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.1. Semantic Similarity",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "In this section, we conduct an analysis to investigates the relationship between the resolution of image crops and the performance of MLLMs in HR image understanding.  \n**Experimental setting.** We analyze the relation between performance and the resolution of image crops, using LLaVA-ov and LLaVA-v1.5 on V * benmark.  \n**Observations.** We visualize the relationship between the resolution of image crops and performance of MLLMs. As shown in Figure 3, from the overall accuracy obtained by using different resolutions, when the resolution of image crops is set to 112, using different MLLM achieved the highest accuracy rates in both the single-object task and the multi-object task. This indicates that setting the resolution to 112 might be the optimal choice. However, when we take",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| ![Street scene with half-timbered buildings and baby carriage](image1)                                                                                                                                                                   | ![Building facade detail](image2) | ![Building entrance with baby carriage](image3) | **Semantic Similarity**<br/>![Semantic similarity heatmap showing building in blue tones](heatmap) |                                                     | ![Building detail in green/blue tones](image4) |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ---------------------------------------------- |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| **What is the color of the baby carriage?**<br/>A. The color of the baby carriage is black.<br/>B. The color of the baby carriage is green.<br/>C. The color of the baby carriage is red.<br/>D. The color of the baby carriage is blue. |                                   | **Answer: B**<br/>**Resolution=96**             | **Answer: B**<br/>**Resolution=112**                                                               | **Resolution =112**<br/>![Scale from 0 to 1](scale) | ![Sad face emoji](sad_face)                    |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "|                                                                                                                                                                                                                                          | ![Street scene detail](image5)    | **Answer: B**<br/>**Resolution =144**           | **Answer: A**<br/>**Resolution =224**                                                              |                                                     |                                                |  \nFigure 2. Setting the resolution of image crops to 112 causes complete objects to be split across different regions, which disrupts the semantic information of the target objects.  \n| **Attribute**                                                                                      |   |   | **Spatial**                                |   |   |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| **Attribute**                                                                                      |   |   | **Spatial**                                |   |   |\n| -------------------------------------------------------------------------------------------------- | - | - | ------------------------------------------ | - | - |\n| ![Two line graphs showing Accuracy vs Resolution of Image Crop for different LLaVA models](graphs) |   |   |                                            |   |   |\n| LLaVA-ov-0.5B LLaVA-v1.5-7B LLaVA-v1.5-13B                                                         |   |   | LLaVA-ov-0.5B LLaVA-v1.5-7B LLaVA-v1.5-13B |   |   |  \nFigure 3. The effect of the resolution of retrieved image crops on model performance. Attribute and Spatial represent the attribute recognition and spatial reasoning in $$V^*$$ Bench.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Figure 3. The effect of the resolution of retrieved image crops on model performance. Attribute and Spatial represent the attribute recognition and spatial reasoning in $$V^*$$ Bench.  \na closer look at the results of each sample, we find that in some cases, choosing a different resolution actually leads to more accurate results compared to when the resolution is 112, as shown in Figure 3. The results of the image crops selected based on different resolutions and the visualization of the semantic similarity map can provide a very intuitive analysis of the reasons: Since the complete object is divided into different crops, some parts of it have a higher semantic similarity calculated by VisRAG, while other parts have a lower semantic similarity. After screening, only the parts with higher similarity are retained. However, this will damage the integrity of the target object and cause interference to the judgment of MLLM.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "3. Preliminary",
+      "sous_section": "3.2. Impact of the Resolution of Image Crops",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "In this section, we propose a novel framework named Multi-resolution Retrieval Detection (MRD). The core design of MRD lies in its multi-resolution approach at different scales to better localize regions containing target objects. This enables subsequent search processes to more easily identify image crops corresponding to the target objects, eliminating irrelevant distractions and enhancing the perceptual understanding of HR images by MLLMs. Based on the findings in subsection 3.2, we argue that using different resolutions for semantic similarity computation is more suitable for objects of varying sizes and locations. Inspired by this idea, we first introduce a simple yet effective Multi-resolution Semantic Fusion method, which computes semantic similarity maps at different resolutions on a local scale and performs consistency-based fusion to refine the semantic similarity and improve its accuracy. To more directly localize target objects, we incorporate an Open-vocabulary object",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "on a local scale and performs consistency-based fusion to refine the semantic similarity and improve its accuracy. To more directly localize target objects, we incorporate an Open-vocabulary object detection model that traverses the entire HR image globally using a sliding window approach, generating confidence scores for regions containing target objects. Finally, by integrating the detection confidence scores with the multi-resolution semantic similarity maps, our method not only improves localization of target regions but also distinguishes fine-grained differences among crops in these regions, thereby assisting subsequent search processes in more accurately identifying key areas. The following sections will provide detailed explanations of each component.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "In subsection 3.2, we observe that image crops of different resolutions are suitable for objects of varying sizes and locations in different cases. Compared to the semantic similarity map obtained using a single resolution, those derived from multiple resolutions exhibit respective advantages. Therefore, we first propose a Multi-Resolution Semantic Fusion method. As shown in the top part of Figure 4, we partition the HR image using proportional resolutions, with the low resolution set to $$l$$ and the high resolution set to $$\\hat{l}$$, where",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "4.1. Multi-resolution Semantic Fusion",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Figure 4. Detailed information of our proposed *MRD*. First, We use VisRAG with different resolution of image crops to obtain multi-resolution semantic similarity map. We then employ an open-set object detection model, LLMDet, to localize the target objects extracted from the query within the high-resolution image using a sliding-window approach, yielding a global detection confidence map. Finally, the obtained multi-resolution semantic similarity map is linearly fused with the detection confidence map, and the fused scores are used to guide the subsequent search to select image crops containing the target objects.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "4.1. Multi-resolution Semantic Fusion",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "$$\\hat{l} = k \\cdot l$$. The set of image patches at high resolution is denoted as $$\\hat{P} = \\{\\hat{p}_1, \\hat{p}_2, \\ldots, \\hat{p}_m\\}$$, and at low resolution as $$P = \\{p_1, p_2, \\ldots, p_n\\}$$. Due to the proportional relationship between high and low resolutions, we have $$n = k^2 \\cdot m$$, and each high-resolution patch $$\\hat{p}_i$$ corresponds to $$k^2$$ low-resolution patches:  \n$$\\hat{p}_i = \\begin{bmatrix} \\tilde{p}_{i,1} & \\tilde{p}_{i,2} & \\cdots & \\tilde{p}_{i,k} \\\\ \\tilde{p}_{i,(k+1)} & \\tilde{p}_{i,(k+2)} & \\cdots & \\tilde{p}_{i,(2k)} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ \\tilde{p}_{i,(k(k-1)+1)} & \\tilde{p}_{i,(k(k-1)+2)} & \\cdots & \\tilde{p}_{i,k^2} \\end{bmatrix}$$ (2)  \nwhere $$\\tilde{p}_{ij} \\in P, i \\in \\{1, 2, \\ldots, m\\}, \\quad j \\in \\{1, 2, \\ldots, k^2\\}$$.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "4.1. Multi-resolution Semantic Fusion",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "where $$\\tilde{p}_{ij} \\in P, i \\in \\{1, 2, \\ldots, m\\}, \\quad j \\in \\{1, 2, \\ldots, k^2\\}$$.  \nThen, using Equation 1, we compute the cosine similarity between the query and image crop embeddings to obtain the semantic similarity scores for high and low resolutions, respectively: $$\\hat{S} = \\{\\hat{s}_1, \\hat{s}_2, \\ldots, \\hat{s}_m\\}$$ and $$S = \\{s_1, s_2, \\ldots, s_n\\}$$:  \n$$\\hat{s}_i = s(f(q), g(\\hat{p}_i)), \\quad s_j = s(f(q), g(p_j))$$ (3)  \nwhere $$f(\\cdot)$$ and $$g(\\cdot)$$ denote the embedding operations for the query and image crop, respectively, with $$i \\in \\{1, 2, \\ldots, m\\}$$ and $$j \\in \\{1, 2, \\ldots, n\\}$$. According to the mapping from $$\\hat{p}_i$$ to $$p_j$$ in (2), we can map the semantic similarity $$\\hat{s}$$ obtained from each high-resolution $$\\hat{p}$$ and the query to the corresponding $$k^2$$ low-resolution $$p$$ positions. The mapping operation can be expressed as:  \n$$\\tilde{S} = H(\\hat{S})$$ (4)",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "4.1. Multi-resolution Semantic Fusion",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "$$\\tilde{S} = H(\\hat{S})$$ (4)  \nwhere $$\\tilde{S} = \\{\\tilde{s}_1, \\tilde{s}_2, \\ldots, \\tilde{s}_n\\}$$. After obtaining $$\\tilde{S}$$ and $$S$$, we perform consistency fusion on the semantic similarities at corresponding positions to obtain the multi-resolution semantic similarity $$S^f = \\{s^f_1, s^f_2, \\ldots, s^f_n\\}$$, which can be expressed as:  \n$$s^f_t = \\sqrt{\\tilde{s}_t \\cdot s_t}, \\quad t \\in 1, 2, \\ldots, n$$ (5)  \nFinally, we can transform the semantic similarity scores into a two-dimensional semantic similarity map $$s^f(i, j)$$ with $$i \\in \\{1, 2, \\ldots, H\\}$$ and $$j \\in \\{1, 2, \\ldots, W\\}$$. The total number of low resolution image crop $$n = H \\times W$$.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "4.1. Multi-resolution Semantic Fusion",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Fusing the multi-resolution semantic similarity scores from high and low resolutions enables correction of the low-resolution similarities when a complete object is split across different patches in the low-resolution view. This enhances the similarity of various parts of the object, thereby preserving the integrity of the object as much as possible during subsequent search processes and improving the recognition accuracy of the MLLM.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4. Method",
+      "sous_section": "4.1. Multi-resolution Semantic Fusion",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "VisRAG divides the HR image into patches and computes semantic similarity between the query and each image crop,",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "enabling localized object retrieval at a small scale. However, it struggles to accurately localize larger objects. To address this limitation and achieve more direct and large-scale object localization, we introduce an advanced open-vocabulary object detection model—LLMDet—to directly locate regions containing target objects. First, we employ in-context learning with a Large Language Model (LLM) to extract the primary target objects from the query, which serve as the target categories for LLMDet. Due to the extremely high resolution of HR images in datasets such as HR-Bench, we adopt a sliding window strategy for object localization. To align with the semantic similarity map derived from image crops, we assign the detection confidence scores of the target bounding boxes to their corresponding image patches, thereby generating a detection map that reflects the confidence of target object presence in each patch. This detection map offers a more intuitive localization representation",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "image patches, thereby generating a detection map that reflects the confidence of target object presence in each patch. This detection map offers a more intuitive localization representation compared to the semantic similarity map. In the following, we provide a detailed introduction to the proposed method.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "**Object Extraction.** To enable open-vocabulary object detection, we first leverages Large Language Models (LLMs) to dynamically identify target objects from textual queries. Given an input query $Q$, we employ in-context learning to extract the primary object entities that serve as detection targets for our LLMDet framework.  \nFormally, we define the object extraction process as:  \n$$O = \\text{LLM}(\\mathcal{P}_{\\text{system}}, \\mathcal{E}_{\\text{examples}}, Q) \\tag{6}$$  \nwhere $O$ represents the set of extracted objects, $\\mathcal{P}_{\\text{system}}$ denotes the system prompt containing extraction guidelines, and $\\mathcal{E}_{\\text{examples}}$ constitutes the demonstration examples.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "**Sliding-window Object Detection.** In order to get a global detection confidence map align with the previously semantic similarity map, we similarly partition the HR image into a grid of $H \\times W$ non-overlapping patches where total number of patches $n = H \\times W$. A sliding window of size $h \\times w$ patches (where $h < H$ and $w < W$) traverses the entire image with a predefined stride. In this way, We can obtain $T$ sliding windows $W = \\{W_1, W_2, ..., W_T\\}$.  \nAfter obtaining multiple sliding windows using the sliding window method, we use LLMDet to detect objects within each sliding window. The detector generates a set of bounding boxes $\\mathcal{B}_t = \\{b_1, b_2, \\ldots, b_{K_t}\\}$ and the corresponding confidence scores $s_k$ indicating the likelihood of containing a target object where $t$ denotes the $t$-th sliding window.  \nWe apply a confidence threshold $\\tau$ to filter out low-quality detections:",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "We apply a confidence threshold $\\tau$ to filter out low-quality detections:  \n$$\\mathcal{B}_t^{\\text{filter}} = \\{b_k \\in \\mathcal{B}_t \\mid s_k > \\tau\\} \\tag{7}$$  \nSubsequently, we generate a window detection confidence map $\\mathbf{c}_t^w \\in \\mathbb{R}^{h \\times w}$ for the current window. The value  \nat patch coordinate $(p, q)$ within this local window is assigned the maximum confidence score among all bounding boxes in $\\mathcal{B}_t^{\\text{filter}}$ that contain this patch. If no box covers the patch, the confidence is set to 0:  \n$$\\mathbf{c}_t^w(p, q) = \\max_{b_k \\in \\mathcal{B}_t^{\\text{filter}}} \\{s_k \\cdot \\mathbb{I}[(m, n) \\in b_k]\\} \\tag{8}$$  \nwhere $\\mathbb{I}[\\cdot]$ is the indicator function that equals 1 if the patch $(p, q)$ is inside the bounding box $b_k$, and 0 otherwise.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "where $\\mathbb{I}[\\cdot]$ is the indicator function that equals 1 if the patch $(p, q)$ is inside the bounding box $b_k$, and 0 otherwise.  \nTo aggregate information from all sliding windows and form a global, unified detection confidence map $\\mathbf{c}^g \\in \\mathbb{R}^{H \\times W}$ for the entire high-resolution image, we employ an averaging fusion strategy. For a global patch at coordinate $(p, q)$, its final confidence score is computed as the average of all confidence scores assigned to it from every sliding window that contained it.  \nFor the patch $I(i, j)$ at position $(i, j)$ in the HR image, if it is contained in the $t$-th sliding window, we denote its position in the $t$-th sliding window $W_t$ as $(t_i, t_j)$, which can be expressed as  \n$$I(i, j) = W_t(t_i, t_j), \\quad t \\in \\mathcal{T}_{i,j} \\tag{9}$$",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "$$I(i, j) = W_t(t_i, t_j), \\quad t \\in \\mathcal{T}_{i,j} \\tag{9}$$  \nwhere $\\mathcal{T}_{ij}$ denotes the set of sliding windows that contain $I(i, j)$. Now, we can obtain the global detection confidence map of the whole HR image, which can be computed as:  \n$$\\mathbf{c}^g(i, j) = \\frac{1}{|\\mathcal{T}_{i,j}|} \\sum_{t \\in \\mathcal{T}_{i,j}} \\mathbf{c}_t^w(t_i, t_j) \\tag{10}$$  \nwhere $i \\in \\{1, 2, \\ldots, H\\}$ and $j \\in \\{1, 2, \\ldots, W\\}$.  \nThe detection confidence map provides effective localization of target regions on a global scale, offering direct spatial guidance but lacking the ability to distinguish fine-grained differences within the target object. To address this limitation, we integrate the detection confidence with multi-resolution semantic similarity through linear combination, which can be expressed as:  \n$$\\mathbf{s}^F(i, j) = (1 - w) \\cdot \\mathbf{s}^f(i, j) + w \\cdot \\mathbf{c}^g(i, j) \\tag{11}$$",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "$$\\mathbf{s}^F(i, j) = (1 - w) \\cdot \\mathbf{s}^f(i, j) + w \\cdot \\mathbf{c}^g(i, j) \\tag{11}$$  \nThis synergistic fusion enables precise target localization while effectively highlighting intra-object variations, thereby facilitating more accurate extraction of key regions in subsequent search processes. The details of the subsequent Retrieved-Exploration Search process can be found in paper [22].",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "4.2. Open-vocabulary Detector Enhancement",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "**Evaluated benchmark.** We evaluate our *MRD* on two high-resolution benchmarks. The first is $V^*$ *Bench* [24], with an average resolution of $2246 \\times 1582$, consists of two sub-tasks: attribute recognition and spatial reasoning. The Second is HRBench which includes two sub-task Fine-grained Single-instance Perception (FSP) and Fine-grained Cross-instance Perception (FCP).  \nTable 1. Comparison of *MRD* with existing works on high-resolution benchmarks  \n| Method                       | V\\* Bench<br/>Attribute | V\\* Bench<br/>Spatial | V\\* Bench<br/>Overall | HR-Bench 4K<br/>FSP | HR-Bench 4K<br/>FCP | HR-Bench 4K<br/>Overall | HR-Bench 8K<br/>FSP | HR-Bench 8K<br/>FCP | HR-Bench 8K<br/>Overall |\n| ---------------------------- | ----------------------- | --------------------- | --------------------- | ------------------- | ------------------- | ----------------------- | ------------------- | ------------------- | ----------------------- |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| *Open-source MLLMs*          |                         |                       |                       |                     |                     |                         |                     |                     |                         |\n| LLaVA-v1.6-7B \\[14]          | 60.9                    | 63.2                  | 61.8                  | 49.0                | 46.8                | 47.9                    | 37.3                | 44.3                | 40.8                    |\n| LLaVA-v1.6-13B \\[14]         | 60.0                    | 64.5                  | 61.8                  | 49.8                | 41.3                | 45.5                    | 38.0                | 38.3                | 38.1                    |\n| LLaVA-v1.6-34B \\[14]         | -                       | -                     | -                     | 55.3                | 50.5                | 52.9                    | 44.5                | 50.3                | 47.4                    |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| LLaVA-HR-X-13B \\[16]         | -                       | -                     | -                     | 61.3                | 46.0                | 53.6                    | 49.5                | 44.3                | 46.9                    |\n| LLaVA-HR-X-7B \\[16]          | 51.3                    | 64.5                  | 56.5                  | 57.8                | 46.3                | 52.0                    | 42.0                | 41.3                | 41.6                    |\n| InternVl-1.5-26B \\[5]        | -                       | -                     | -                     | 69.5                | 51.8                | 60.6                    | 69.3                | 48.5                | 57.9                    |\n| Yi-VL-34B \\[26]              | -                       | -                     | -                     | 46.0                | 42.8                | 44.4                    | 39.5                | 38.5                | 39.0                    |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| *Closed-source MLLMs*        |                         |                       |                       |                     |                     |                         |                     |                     |                         |\n| GPT-4o \\[8]                  | -                       | -                     | 66.0                  | 70.0                | 48.0                | 59.0                    | 62.0                | 49.0                | 55.5                    |\n| Qwen-VL-max \\[2]             | -                       | -                     | -                     | 65.0                | **52.0**            | 58.5                    | 54.0                | **51.0**            | 52.5                    |\n| *Baselines and MRD*          |                         |                       |                       |                     |                     |                         |                     |                     |                         |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| LLaVA-v1.5-7B \\[14]          | 43.5                    | 56.6                  | 48.7                  | 38.5                | 33.8                | 36.1                    | 33.0                | 31.3                | 32.1                    |\n| LLaVA-v1.5-7B-Zoom Eye \\[19] | 83.5                    | 82.9                  | 83.3                  | 67.8                | 38.8                | 53.3                    | 65.5                | 36.0                | 50.8                    |\n| LLaVA-v1.5-7B-RAP \\[22]      | 90.4                    | **96.1**              | 91.1                  | 73.8                | 40.5                | 57.1                    | 72.3                | 35.3                | 53.8                    |\n| **LLaVA-v1.5-7B-MRD (ours)** | **97.4**                | **96.1**              | **95.6**              | **76.8**            | 42.7                | **59.7**                | **72.6**            | 37.2                | **54.9**                |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| LLaVA-ov-0.5B \\[14]          | 63.5                    | 64.5                  | 63.9                  | 63.5                | 39.5                | 51.5                    | 47.3                | 38.3                | 42.8                    |\n| LLaVA-ov-0.5B-Zoom Eye\\[19]  | 85.2                    | 73.7                  | 80.6                  | 75.5                | 39.8                | 57.6                    | 68.5                | 38.3                | 53.4                    |\n| LLaVA-ov-0.5B-RAP \\[22]      | 80.0                    | 84.2                  | 83.6                  | 80.3                | 42.3                | 61.3                    | **81.8**            | 45.3                | 63.5                    |\n| **LLaVA-ov-0.5B-MRD (ours)** | **89.6**                | **82.9**              | **88.0**              | **84.0**            | **45.2**            | **64.6**                | **81.8**            | **47.3**            | **64.5**                |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| **HR Image**                                                   | **Res = 112** | **Res = 224** | **Multi-res** |   | **Search Result<br/>(Res = 112)** | **Search Result<br/>(Multi-res)** |\n| -------------------------------------------------------------- | ------------- | ------------- | ------------- | - | --------------------------------- | --------------------------------- |\n| What is the color of the cyclist's box?                        |               |               |               |   |                                   |                                   |\n| Is the green bucket on the left or right side of the red tent? |               |               |               |   |                                   |                                   |\n| **HR Image**                                                   | **Res = 112** | **OVD**       | **RAG+OVD**   |   | **Search Result<br/>(Res = 112)** | **Search Result<br/>(RAG+OVD)**   |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| **HR Image**                                                   | **Res = 112** | **OVD**       | **RAG+OVD**   |   | **Search Result<br/>(Res = 112)** | **Search Result<br/>(RAG+OVD)**   |\n| What is the color of the telephone?                            |               |               |               |   |                                   |                                   |\n| What is the material of the stool?                             |               |               |               |   |                                   |                                   |  \nFigure 5. Visualization of the Effects of Different Modules in MRD. Upper: Visualization of the Effects of the Multi-resolution Semantic Fusion Method. Lower: Visualization of the Effects of the Multi-resolution Semantic Fusion Method",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5. Experiments",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "As shown in Table 1, compared with both the baseline MLLMs and previous baseline approaches, our proposed  \nMRD framework consistently delivers substantial performance gains across all sub-tasks, datasets, and model configurations. The improvement is most pronounced on the V* dataset using the LaVA-v1.5-7B model, where MRD achieves a remarkable 46.9% absolute increase in accuracy—nearly doubling the original performance. Significant gains are also observed on HR-Bench 4K and HR-Bench 8K, with maximum improvements of 23.6% and 22.8%, respectively.  \nIn comparison to the state-of-the-art baseline RAP, MRD achieves superior performance across all datasets and model settings, yielding an average improvement of 2.8%. When examining results across sub-task categories, MRD demonstrates particularly strong performance on single-object tasks. We attribute this advantage to the integration of a detection module, which provides more accurate localization for isolated objects.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.1. Main Results",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Overall, these results indicate that MRD markedly enhances the perception and understanding capabilities of MLLMs when operating on high-resolution images.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.1. Main Results",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Multi-resolution Semantic Fusion can obtain more accurate information by integrating semantic similarity maps from different resolutions. From the two cases shown in the upper part of Figure 5, we can clearly observe that incorporating multi-resolution semantic fusion allows the high-resolution semantic similarity map to correct the low-resolution map, alleviating semantic deviations caused by different parts of the target object being split across multiple patches. This helps better preserve the integrity of the target object. The results in the cases demonstrate that the approach is effective for both single-object and multi-object tasks. Overall, the experimental results indicate that Multi-resolution Semantic Fusion provides better adaptability to objects of different sizes compared to using a single resolution.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.2. Effect of the Multi-resolution Semantic Fusion",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "To achieve more accurate and direct localization of the target object at a global scale, we introduce an open-set object detection model. As shown in lower part of Figure 5, sliding-window detection results effectively identify the target object's location. By combining the detection results with semantic similarity scores, MRD amplifies the scores of patches that contain the target object while suppressing false-positive patches that also exhibit high semantic similarity. This integration facilitates a more efficient and accurate patch retrieval process in subsequent searching.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.3. Effect of Open-vocabulary Object Detection",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "To better understand the contributions of different modules in our *MRD* framework, we conduct ablation studies  \nTable 2. Ablation study of different module in *MRD*.  \n|                   | V\\* Bench<br/>Attribute | V\\* Bench<br/>Spatial | V\\* Bench<br/>Overall | ∆↑   |\n| ----------------- | ----------------------- | --------------------- | --------------------- | ---- |\n| RAP               | 80.0                    | 84.2                  | 83.6                  | -    |\n| OVD               | 84.3                    | 81.6                  | 84.9                  | +1.3 |\n| RAP+Multi-res     | 82.9                    | 85.2                  | 85.8                  | +2.2 |\n| RAP+OVD           | 85.2                    | 84.2                  | 86.2                  | +2.6 |\n| RAP+OVD+Multi-Res | 90.4                    | 85.5                  | 89.3                  | +5.7 |",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.4. Ablation Study",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "| RAP+OVD+Multi-Res | 90.4                    | 85.5                  | 89.3                  | +5.7 |  \non the V* dataset using the LLaVA-ov-0.5B model. As shown in Table 2, using the OVD model alone (second row) yields higher localization accuracy for single-object tasks, but its performance on multi-object tasks is inferior to RAP. When RAP employs multi-resolution semantic fusion (third row), performance improves on both single-object and multi-object tasks, indicating that multi-resolution semantic fusion can better handle objects of varying sizes across different scenarios.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.4. Ablation Study",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "Fusing the semantic similarity map obtained from RAP with the detection confidence map from OVD (fourth row) significantly improves performance on single-object tasks; however, the performance on multi-object tasks is even worse than using OVD alone, suggesting that some target objects may be lost during the search. By further incorporating multi-resolution semantic fusion, performance improves on both single-object and multi-object tasks, demonstrating the effectiveness of this fusion strategy.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.4. Ablation Study",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "In summary, introducing OVD helps localize single objects more accurately but may result in missed objects in multi-object scenarios. Multi-resolution semantic fusion corrects semantic similarity scores and preserves object completeness under different conditions, enhancing MLLM performance on both single- and multi-object tasks. The final model, which integrates all modules, achieves a 5.7% higher accuracy than RAP, demonstrating the effectiveness of MRD's design in improving high-resolution image understanding for MLLMs.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "5.4. Ablation Study",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  },
+  {
+    "page_content": "In this work, we propose a novel training-free method, Multi-resolution Retrieval-Detection (MRD), to enhance the understanding of high-resolution images by MLLMs. MRD employs multi-resolution semantic similarity to correct single-resolution similarity maps, ensuring the integrity of target objects. Moreover, to localize target objects more accurately and directly, we introduce an OVD model that identifies object regions using a sliding-window approach. We demonstrate the effectiveness of MRD across multiple high-resolution benchmarks with different MLLMs, showing its superior performance in HR image understanding.",
+    "metadata": {
+      "source": "data/test/intermediate/2512.02906v2.md",
+      "section": "6. Conclusion",
+      "sous_section": "",
+      "titre": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_title": "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding",
+      "meta_authors": "Fan Yang, Kaihao Zhang",
+      "meta_year": "Unknown"
+    }
+  }
+]

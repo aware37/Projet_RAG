@@ -1,0 +1,2362 @@
+
+
+# GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT (SAR SDD)
+
+Issue 3.0 | October 2024
+
+#EUSpace
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# TERMS OF USE AND DISCLAIMERS
+
+## Authorised Use and Scope of Use
+
+The SAR/Galileo service has been designed in order to support the Cospas-Sarsat (C/S) international satellite-based system for Search and Rescue (SAR) in the context of the MEOSAR system (Medium Earth Orbit Search and Rescue).
+
+Users of the SAR/Galileo services are primarily the national SAR administrations participating in the Cospas-Sarsat programme for the SAR/Galileo Forward Link service (FLS), and the users of the SAR/Galileo Return Link Service (RLS) with suitable RLS-enabled distress beacons. How SAR/Galileo services are used by those conducting Search and Rescue operations remain their sole responsibility.
+
+The SAR/Galileo Full Operational Capability Service is European Union's contribution to the MEOSAR system through the operations of SAR Space Segment, Forward Link Ground Segment, and provision of Return Link Service.
+
+### Scope of Galileo SAR Commitment
+
+The main infrastructure providing the SAR/Galileo Full Operational Capability Service conforms to the Cospas-Sarsat standards applicable at the date of the start of the service provision for the MEOSAR Initial Operational Capability (IOC). Although care has been taken in designing, implementing, and operating the system, as well as in providing the SAR/Galileo capabilities, the SAR/Galileo offers no service guarantee to users.
+
+The Minimum Performance Levels against which the system has been validated and is operated, as well as data of actual performance of the SAR/Galileo, are expressed in this document in statistical values that are valid under the assumptions described per target group (FL and RL) in the present SAR/Galileo Service Definition Document (SDD). The European Commission (EC) reserves the right to revise the present SAR/Galileo SDD, should these assumptions change or to reflect changes in performance during the deployment of the Galileo infrastructure.
+
+This commitment regarding the MPLs as well as any other commitment in this document shall be without prejudice to the disclaimer of liability, here-below, and measures potentially affecting service availability that may be taken either by the Galileo Security Accreditation Board, or according to Council Decision 2021/698/ CSFP, or in the interests of Member States' national security. The European Union (EU) plans to take all necessary measures for the foreseeable future to maintain or exceed the MPLs of the SAR/Galileo service performance described herein. The SAR/Galileo MPLs, as specified in the present document (SAR/Galileo SDD), are obtained under the condition that the user equipment complies with the Cospas-Sarsat standard for 406MHz distress beacons as defined in [RD4] (1st generation of C/S beacons). The specific provision of RLS is provided for all RLS-enabled beacons compliant with the [RD4] or [RD12] documents (1st and 2nd generation C/S beacons, respectively).
+
+Users are reminded that important service notices (Notice Advisory to SAR/Galileo Users – NASUs, Notice Advisory to Galileo Users -NAGUs, SARR Status and or SAR Service Status) are published by the Galileo Service Centre (GSC) on its website and/or distributed by the French or Spanish Mission Control Centre (FMCC or SPMCC distribution of specific status messages) and shall be taken into account when planning to use the SAR/Galileo services.
+
+### User Responsibilities
+
+Users retain their responsibility to exercise a level of care appropriate with respect to their intended use of the SAR/Galileo Services, considering the considerations outlined above. Users are reminded the achieved location probability and accuracy performance is also driven by other parameters outside the control of the
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii                i
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+SAR/Galileo Services provider (e.g. interferer induced errors, outage of Search and Rescue transponders from other GNSS constellations), which must be considered when deciding to use the SAR/Galileo Services for a given purpose. Before any use of SAR/Galileo Services, users should study this document to understand how they can use the service, as well as to familiarise themselves with performance levels and other aspects of the service.
+
+Users shall be aware of the potential variation of the end-to-end Return Link Service performance in terms of latency, depending on the areas where the Cospas-Sarsat MEOSAR coverage is provided.
+
+In case of doubt, users and other parties should contact the appropriate helpdesk for the SAR/Galileo Service (see Annex E: for contact details).
+
+## Disclaimer of Liability
+
+As the owner of the Galileo system, the European Union – including any of its institutions, offices or agencies, such as the European Commission (EC), the European Union Agency for Space Programme (EUSPA), and other entities acting on the basis of a contract or agreement with the European Union involved in the SAR/Galileo service provision - offers no warranties of any kind (whether expressed or implied) with respect to the SAR/Galileo services, including, but not limited to, the warranties regarding availability, continuity, accuracy, integrity, reliability and fitness for a particular purpose or meeting user requirements. No advice or information, whether oral or written, obtained from the European Union - including any of its institutions, offices, or agencies, such as the European Commission, the European Union Agency for Space Programme (EUSPA), and other entities acting on the basis of a contract or agreement with the European Union involved in the Galileo SAR service provision - shall create any such warranty.
+
+By using the SAR/Galileo services, the user accepts and agrees that the European Union – including any of its institutions, offices or agencies, such as the EC, the EUSPA, and other entities acting on the basis of a contract or agreement with the EU involved in the SAR/Galileo service provision – shall not be held responsible or liable for any damages resulting from the use of, misuse of, or the inability to use the SAR/Galileo service, including, but not limited to, direct, indirect, special or consequential damages, including, but not limited to, damages for interruption of business, loss of profits, goodwill or other intangible losses, other than in accordance with Article 340 of the Treaty on the Functioning of the European Union.
+
+## Copyright
+
+This document and information contained herein is subject to copyright which belongs to the European Union. It may be excerpted, copied, printed, republished, made available to the public by wire or wireless means and/or otherwise provided to third parties only under the conditions that the present "Terms of Use and Disclaimers" are accepted, reproduced and transmitted entirely and unmodified together with the reproduced and/or transmitted information, and the source and copyright owner is clearly stated as follows: "Source: Search and Rescue Galileo Service Definition Document, © European Union, 2024".
+
+No part of this document, including any part of the information contained therein, in whichever format, whether digital or otherwise, may be altered, edited or changed without prior express and written permission of the European Union to be requested via the European union Agency for the Space Programme (https://www.euspa.europa.eu/about/contact), clearly stating the element (document and/or information) and term of use requested. For reproduction or use of photos and any other artistic material, permission may have to be directly obtained from the copyright holder.
+
+## Miscellaneous
+
+No failure or delay in exercising any right in relation to this document or the information contained therein shall operate as a waiver thereof, nor shall any single or partial exercise preclude any other or further exercise of such rights.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii     ii
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+## Updates
+
+This document could be subject to modifications, updates and variations. The publication of updates will be subject to the same terms as stated herein unless otherwise evidenced. Although the Publishing Authority will deploy its efforts to give notice to the public for further updates of this document, it does not assume any obligation to advise on further developments and updates of this document, nor to take into account any inputs or comments proposed by interested persons or entities, involved in the updating process.
+
+By downloading, forwarding, and/or copying this document or any parts thereof, in whichever format, whether digital or otherwise, the user acknowledges and accepts the above terms of use as applicable to him/her.
+
+ISBN: 978-92-9206-082-4
+
+doi: 10.2878/121287
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii    iii
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+## DOCUMENT CHANGE RECORD
+
+| REASON FOR CHANGE                                                  | ISSUE | REVISION | DATE          |
+| ------------------------------------------------------------------ | ----- | -------- | ------------- |
+| First Issue of the Document for the Galileo Initial Services       | 1     | 0        | December 2016 |
+| Second Issue of the Document for the SAR/Galileo Enhanced Services | 2     | 0        | January 2020  |
+| Third issue of the Document for SAR/Galileo FOC Services           | 3     | 0        | October 2024  |
+
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii    iv
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# FOREWORD
+
+Galileo is the European Global Navigation Satellite System (EGNSS), under civil control, that provides satellite positioning and timing information services to European citizens and worldwide. The Galileo Programme provides Europe and European citizens with independence and sovereignty from other satellite navigation systems and once fully operational, will offer six high-performance services: Open Service, High Accuracy Service, Signal Authentication Service, Public Regulated Service, Emergency Service and Timing Service. The Galileo system contributes also to the Search and Rescue service (SAR) of the COSPAS-SARSAT system.
+
+This document supersedes the "Galileo Service – SAR Service – Service Definition Document" in its issue V2.0 and defines the Minimum Performance Levels of the Galileo Forward Link and Return Link Services to be provided during the Galileo Full Operational Capability service provision phase.
+
+The document will be updated upon relevant changes and improvements of the SAR/Galileo services.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii    v
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# TABLE OF CONTENTS
+
+| 1 | PURPOSE AND SCOPE OF THE DOCUMENT | 1 |
+| 2 | COSPAS-SARSAT SYSTEM OVERVIEW | 2 |
+| 2.1 | Background | 2 |
+| 2.2 | Overview | 2 |
+| 3 | SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE | 4 |
+| 3.1 | SAR/Galileo Forward Link Service | 4 |
+| 3.2 | SAR/Galileo Return Link Service | 7 |
+| 3.2.1 | SAR/Galileo RLM Content | 9 |
+| 3.3 | SAR/Galileo Full Operational Capability Service Infrastructure | 9 |
+| 3.3.1 | SAR/Galileo Space Segment | 10 |
+| 3.3.2 | Galileo Ground Segment | 11 |
+| 3.3.3 | SAR/Galileo Ground Segment | 12 |
+| 4 | SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE CHARACTERISTICS | 21 |
+| 4.1 | Space Segment | 21 |
+| 4.2 | SAR/Galileo Forward Link Service States in ECA | 21 |
+| 4.3 | SAR/Galileo Forward Link Service States in IOCA | 22 |
+| 4.4 | SAR/Galileo Return Link Service | 23 |
+| 4.4.1 | Roles and Commitments | 23 |
+| 4.4.2 | SAR/Galileo Return Link Latency and Monitored Loops Definitions and Naming Conventions | 23 |
+| 4.4.3 | SAR/Galileo Return Link Service Beacon Reception and Timing Strategies | 24 |
+| 4.4.4 | SAR/Galileo Return Link Service Capacity | 26 |
+| 4.4.5 | SAR/Galileo Return Link Service Coverage | 26 |
+| 4.4.6 | SAR/Galileo Return Link Service Robustness | 26 |
+| 4.4.7 | SAR/Galileo Return Link Service States | 27 |
+| 5 | SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE MINIMUM PERFORMANCE LEVELS | 28 |
+| 5.1 | SAR/Galileo Forward Link Service MPL | 28 |
+| 5.1.1 | Forward Link Service Availability | 28 |
+| 5.1.2 | FLS Detection Performance | 29 |
+| 5.1.3 | FLS Location Performance | 29 |
+| 5.1.4 | SAR/Galileo MEOLUT Facility Availability | 30 |
+| 5.2 | SAR/Galileo Return Link Service Performance | 31 |
+| 5.2.1 | Return Link Service Availability | 31 |
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii    vi
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+5.2.2 Galileo Return Link Service Latency ..................................................................................................32
+
+5.3 SAR/Galileo Space Segment Availability for the Forward Link Service ...............................................33
+
+6 LIST OF REFERENCES ................................................................................................................................................34
+
+ANNEX A SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE OPERATIONS...............35
+
+A.1. SAR/GALILEO DATA SERVICE PROVIDER (ANNEX) ................................................................................35
+
+A.2. COMMUNICATION TO SAR/GALILEO USERS (ANNEX) .......................................................35
+
+A.3. SAR/GALILEO SPACE SEGMENT (ANNEX) .................................................................................36
+
+ANNEX B SAR/GALILEO SERVER USER MANUAL AND ORBITAL PRODUCTS............................37
+
+B.1. USER INTERFACE (ANNEX) .................................................................................................................................... 37
+
+B.1.1. USER ACCESS REQUEST PROCEDURE (ANNEX) .................................................................... 37
+
+B.1.2. SERVICE NOTIFICATION (ANNEX)....................................................................................................39
+
+B.2.ORBITAL PRODUCTS (ANNEX)..............................................................................................................................39
+
+B.2.1. SAR SERVER FOLDERS STRUCTURE (ANNEX) ......................................................................... 41
+
+B.2.2. SATELLITE NAMING CONVENTION TABLE (ANNEX) ............................................................41
+
+B.3.INVESTIGATION REQUEST (ANNEX) .................................................................................................................43
+
+B.4.SAMPLE OF OPERATIONAL NOTIFICATION (ANNEX) ............................................................................43
+
+ANNEX C SAMPLE OF NOTICE ADVISORY TO SAR/GALILEO USERS ..............................................45
+
+ANNEX D EXTERNAL MEOLUT CONNECTION AND DATA EXCHANGE............................................46
+
+ANNEX E FURTHER INFORMATION ON THE SAR/GALILEO SERVICES........................................... 47
+
+E.1. SAR/GALILEO POINTS OF CONTACT (ANNEX) ........................................................................................... 47
+
+E.2.SAR/GALILEO RETURN LINK IDENTIFY (ANNEX) ......................................................................................47
+
+ANNEX F ABBREVIATIONS AND ACRONYMS .................................................................................................48
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii vii
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# LIST OF TABLES
+
+Table 1 – Specific SAR/Galileo Repeaters Characteristics in Normal and Narrowband Modes.........................11
+
+Table 2 – SAR/Galileo MEOLUT Facilities locations..........................................................................................................14
+
+Table 3 – SAR/Galileo REFBE Technical Details ................................................................................................................18
+
+Table 4 – SAR/Galileo CALBE transmission details in FGB configuration................................................................. 19
+
+Table 5 – SAR/Galileo Forward Link Operating States Definition in ECA ................................................................. 22
+
+Table 6 – SAR/Galileo Forward Link Operating States Definition in IOCA ...............................................................22
+
+Table 7 – SAR/Galileo RLS Operating States Definition ................................................................................................. 27
+
+Table 8 – SAR/Galileo FLS Availability in ECA ...................................................................................................................28
+
+Table 9 – SAR/Galileo FLS Availability in IOCA .................................................................................................................29
+
+Table 10 – SAR/Galileo Service Detection MPL .................................................................................................................29
+
+Table 11 – SAR/Galileo FLS Location Performance MPLs..............................................................................................30
+
+Table 12 – SAR/Galileo MEOLUT Facilities Availability in ECA .................................................................................... 31
+
+Table 13 – La Reunion SAR/Galileo MEOLUT Facility Availability in IOCA ..............................................................31
+
+Table 14 – SAR/Galileo Return Link Service Availability MPL.......................................................................................31
+
+Table 15 – End-to-End Return Link Service Availability Expected Value.................................................................. 32
+
+Table 16 – Galileo System Message Delivery Loop Latency MPL ................................................................................32
+
+Table 17 – End-to-End Return Link Service Delivery Loop Latency Expected Value ............................................33
+
+Table 18 – Galileo SAR Repeater Availability MPL ...........................................................................................................33
+
+Table 19 – Reference Documents...........................................................................................................................................34
+
+Table 20 – European GNSS Service Centre website resources.................................................................................... 36
+
+Table 21 – SAR Server User Registration Form Content................................................................................................ 38
+
+Table 22 – SAR Server Orbital Products ..............................................................................................................................40
+
+Table 23 – Galileo Satellite Identification Table .................................................................................................................42
+
+Table 24 – Fields for SAR Server Investigation Request ................................................................................................ 43
+
+Table 25 – Abbreviations and Acronyms .............................................................................................................................52
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii    viii
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# LIST OF FIGURES
+
+| Figure 1 – The Cospas-Sarsat MEOSAR System | 3 |
+| Figure 2 – SAR/Galileo infrastructure associated with the Forward Link Service | 5 |
+| Figure 3 – European SAR/Galileo Coverage Area and Associated SAR/Galileo Sites | 6 |
+| Figure 4 – Indian Ocean SAR/Galileo Coverage Area and associated SAR/Galileo Sites | 7 |
+| Figure 5 – SAR/Galileo RLS Integration into Cospas-Sarsat | 8 |
+| Figure 6 – Return Link Message Content | 9 |
+| Figure 7 – Galileo FOC Satellite | 10 |
+| Figure 8 – Galileo System Overview and Interface with the SAR/Galileo Ground Infrastructure | 12 |
+| Figure 9 – SAR/Galileo FL and RL Ground Infrastructure Overview | 13 |
+| Figure 10 – Maspalomas EU/MEOLUT Facility | 15 |
+| Figure 11 – Spitsbergen EU/MEOLUT Facility | 15 |
+| Figure 12 – Larnaca EU/MEOLUT Facility | 15 |
+| Figure 13 – La Réunion EU/MEOLUT Facility | 16 |
+| Figure 14 – Reference Beacons Transmission Schedule Within One Hour | 18 |
+| Figure 15 – Return Link Delivery Chain and Stakeholder Domain of Responsibility | 24 |
+| Figure 16 – RLMR Timing Strategy | 25 |
+| Figure 17 – SAR Server - User Access Request | 38 |
+| Figure 18 – SAR Galileo Return Link Visual Identity | 47 |
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-iii    ix
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# 1 PURPOSE AND SCOPE OF THE DOCUMENT
+
+The purpose of this document is to describe Galileo's contribution to the Cospas-Sarsat MEOSAR programme by presenting the SAR/Galileo service characteristics, the associated infrastructure as well as the Minimum Performance Levels (MPL) and the conditions under which such MPLs are met. Compared to the previous versions, this version ("Galileo Full Operational Capability (FOC) Service, SAR Service Definition Document") also describes the new SAR/Galileo Forward Link Service coverage area provided by the SAR/Galileo MEOLUT Facility deployed in La Reunion, France, and introduces other relevant updates of the SAR/Galileo System.
+
+This document does not address Galileo Open Service or the Galileo Signal In Space characteristics, as they are described in dedicated Programme reference documents¹.
+
+The document comprises the following sections:
+
+• Section 1 "Purpose and Scope of the Document", the present section.
+• Section 2 "Cospas-Sarsat System Overview" describes the context of the Cospas-Sarsat MEOSAR programme in which the SAR/Galileo Full Operational Capability Service is contributing.
+• Section 3 "SAR/Galileo Full Operational Capability Service" provides a general description and the main characteristics of the SAR/Galileo FOC Forward Link and Return Link Services.
+• Section 4 "SAR/Galileo Full Operational Capability Service Characteristics" provides further details on the Service characteristics while also listing conditions, exclusions, and assumptions to be taken into consideration by users.
+• Section 5 "SAR/Galileo Full Operational Capability Service Minimum Performance Levels" provides the SAR/Galileo MPL that can be expected by end users.
+
+The following annexes complete the document:
+
+• Annex A: "SAR/Galileo Full Operational Capability Service Operations" provides further details on how the SAR/Galileo operations are conducted and list the involved entities and interfaces.
+• Annex B: "SAR/Galileo Server User Manual and Orbital Products" provides further details on, and the procedure to, request access to the Galileo satellites orbit data server.
+• Annex C: "Sample of Notice Advisory to SAR/Galileo Users" provides an example of an operational notification message to SAR/Galileo service users using the free-text Subject Indicator Type (SIT) number 605 informing about SAR/Galileo service events.
+• Annex D: "External MEOLUT Connection and Data Exchange" lists the set of conditions required for an external MEOLUT to share TOA/FOA with the SAR/Galileo.
+• Annex E: "Further Information on the SAR/Galileo Services" lists the contact points for additional information requests related to the SAR/Galileo service and provides further details to beacon users and manufacturers.
+• Annex F: "Abbreviations and Acronyms" accounts for those in use within the document.
+
+¹ Refer to [RD9] for the Galileo OS SDD and [RD10] for the Galileo SIS ICD
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    1
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+## 2 COSPAS-SARSAT SYSTEM OVERVIEW
+
+### 2.1 Background
+
+Cospas-Sarsat (C/S) is an international satellite system for Search and Rescue (SAR) distress alerting that was established in 1979 by Canada, France, the USA and the former USSR. Since its inception, the Cospas-Sarsat programme has continually progressed at technical level but also in terms of number of participating countries. Currently the treaty-based non-profit international organisation is composed of 45 countries and organisations².
+
+### 2.2 Overview
+
+The international cooperation resulted in the implementation of a free of charge international satellite distress alerting system, the Cospas-Sarsat programme. This system uses a variety of space and ground segment components providing distress alert and location information to connected SAR authorities throughout the world for maritime, aviation and land users in distress (e.g. distress beacons).
+
+The Cospas-Sarsat system was originally conceived with satellites in low Earth orbits (hereinafter LEOSAR) and associated compatible ground stations. It was first complemented with geostationary orbit satellites (hereinafter GEOSAR). Since the year 2000, C/S is transitioning to benefit from SAR instruments in medium Earth orbit (hereinafter MEOSAR) and associated compatible ground stations (MEOLUTs). To fulfil its main mission, the C/S system is composed of:
+
+1) Beacons: 406MHz radio transmitting devices that comply with specifications and construction requirements³ according to their intended use:
+   - Emergency Position Indicating Radio Beacons (EPIRBs) and Ship Security Alert System (SSAS) for maritime applications,
+   - Emergency Locator Transmitters (ELTs) and ELT Distress Tracking (ELT(DT)) for aviation applications,
+   - Personal Locator Beacons (PLBs) for personal use.
+2) A Space Segment: Encompassing satellites in low Earth orbit, geostationary orbit and medium Earth orbit (subject of this document) that process and / or relay the signals transmitted by beacons;
+3) A Ground Segment: A verified⁴ and geographically distributed set of receiving ground stations called Local User Terminals (e.g. MEOLUTs, for the MEOSAR service) provides the ground segment coverage with the capability to track the satellites, processes the broadcast signals and generates independent location estimations of the user in distress (i.e. beacon);
+4) Mission Control: The mission is assured by the Mission Control Centres (MCCs) strategic ground segment elements. They contribute to the distribution of Cospas-Sarsat distress alerts generated by the LUTs throughout the world. Distress alert distribution is performed via dedicated network connections and data distribution plan⁵ to other Cospas-Sarsat MCC participants that agreed to receive such services and more importantly to the relevant Rescue Coordination Centre (RCC) in charge of the Search and Rescue mission.
+
+² Refer to Cospas-Sarsat website [www.cospas-sarsat.int] for further information.
+³ Refer to Specification for C/S 406 MHz Distress Beacons [RD4] and [RD12] for further information.
+⁴ Refer to C/S MEOLUT Performance Specification and Design Guidelines [RD7] for further information.
+⁵ Refer to Cospas-Sarsat Data Distribution Plan [RD2]
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    2
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+Figure 1 illustrates the interaction between all four MEOSAR components to deliver the service.
+
+```mermaid
+graph TB
+    SAT[MEOSAR<br/>GPS, Glonass, Galileo<br/>Search & Rescue Satellites ②]
+    ELT[ELT]
+    EPIRB[EPIRB]
+    PLB[PLB]
+    RLSP[RLSP<br/>Galileo]
+    LUT[Local User<br/>Terminal ③]
+    MCC[Mission Control<br/>Centre ④<br/>FMCC/<br/>SPMCC]
+    RCC[Rescue<br/>Coordination<br/>Centre ⑤<br/>BEACON<br/>LOCATION]
+    SAR[SAR Response ⑥]
+    
+    SAT -->|1.544 - 1.545 GHz| LUT
+    SAT -->|406 MHz| RLSP
+    ELT -->|① Distress Signal from<br/>Emergency Beacons| EPIRB
+    EPIRB --> PLB
+    RLSP -->|Return link signal| SAT
+    RLSP --> MCC
+    MCC --> RCC
+    RCC --> SAR
+    SAR -->|green arrow| MCC
+```
+
+**Figure 1 – The Cospas-Sarsat MEOSAR System**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    3
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# 3 SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE
+
+Since the declaration of Galileo Initial Services on 15th December 2016, the Galileo Programme has continuously provided the SAR/Galileo Services and incrementally upgraded the Galileo infrastructure, resulting in the SAR/Galileo Enhanced Service declaration on 19th January 2020.
+
+Further improving its contribution, the SAR/Galileo System has reached the Full Operational Capability (FOC) in the following configuration:
+
+1. **Space Segment:** updated number of SAR payloads available from the Galileo constellation (see Annex A).
+
+2. **Ground Segment:** A more enlarged SAR/Galileo Ground Segment (SGS) infrastructure, with the addition of a 4th SAR/Galileo MEOLUT Facility in La Reunion, France, commissioned in accordance with the Cospas-Sarsat MEOSAR FOC standards<sup>6</sup>.
+
+3. **Service Performance:** The upgraded SAR/Galileo infrastructure entails the provision of the SAR/Galileo Services over a new coverage area, the Indian Ocean Coverage Area (IOCA).
+
+## 3.1 SAR/Galileo Forward Link Service
+
+The SAR/Galileo FOC Forward Link Service is Galileo's capability to pick up signals emitted from Cospas-Sarsat compatible 406MHz distress beacons and relay this information to the ECA SAR/Galileo MEOLUTs, which is a network of three geographically distributed SAR/Galileo MEOLUT Facilities over continental Europe, and the IOCA SAR/Galileo MEOLUT, which is a single SAR/Galileo MEOLUT facility deployed in la Reunion Island. Based on specific levels of performance defined in section 5, the SAR/Galileo MEOLUTs can in turn provide beacon identification and location estimation information to the associated Cospas-Sarsat MCCs.
+
+The SAR/Galileo FOC Forward Link Service is supported by a ground segment infrastructure, depicted in Figure 2, which consists of:
+
+• Three SAR/Galileo MEOLUT Facilities deployed in: Maspalomas (Spain), Spitsbergen (Norway) and Larnaca (Cyprus)
+    - Maspalomas, Spitsbergen and Larnaca MEOLUT Facilities are fitted with four-dish antennas and associated processing components;
+    - One MEOLUT Tracking Coordination Facility (MTCF) located in the SAR/Galileo Service Centre (SGSC) in Toulouse (France) to ensure coordinated operations;
+
+• One SAR/Galileo MEOLUT Facility deployed in La Reunion (France): it is an active phased-array antenna MEOLUT composed of 64 L-band antenna receivers and associated processing components;
+
+• Eight SAR/Galileo reference beacons (REFBE) located in Maspalomas (Spain), Spitsbergen (Norway), Larnaca (Cyprus), La Reunion (France), Toulouse (France), Santa Maria (Portugal), Kerguelen (France) and Greenland (Denmark), suited for FLS and RLS Service monitoring;
+
+• Five SAR/Galileo calibration beacons (CALBE) located in Maspalomas (Spain), Spitsbergen (Norway), Larnaca (Cyprus) and two in La Reunion (France) suited for FLS calibration purposes;
+
+<sup>6</sup> Refer to [RD7] for Cospas-Sarsat MEOLUT Performance Specifications.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    4
+
+
+
+
+
+• A SAR Server deployed in the European GNSS Service Centre (GSC) in Madrid (Spain), providing an alternative source of precise Galileo orbital parameters (e.g. ephemeris, almanacs, clock corrections) to both the SAR/Galileo System and other interested Cospas-Sarsat operational entities.
+
+**Galileo Search & Rescue Satellites**
+
+[Diagram showing the SAR/Galileo infrastructure with the following components and connections:
+- At the top: Galileo Search & Rescue Satellites
+- Left side: SPMCC, NMCC, CYMCC, FMCC connected to C/S Network, which connects to European MEOLUT
+- Center: Emergency Beacons (MEOSAR users) shown with beacon devices
+- Right side: SAR/Galileo Reference & Calibration Beacons (shown as antenna tower), GSC with SAR Server, and SGSC with Toulouse/EU MTCF database
+- Connections shown: "1.544 + E-SGC+" from satellites to MEOLUT, "406 MHz" from satellites to beacons, "Orbit Data" from GSC to SGSC, "Monitoring & System Data" between European MEOLUT and SGSC]
+
+**Figure 2 – SAR/Galileo infrastructure associated with the Forward Link Service**
+
+The signals relayed by the Galileo satellites⁷ are received by the four SAR/Galileo MEOLUT Facilities which ensure the provision of the Forward Link Service over the coverage area of 40 million square kilometres that is referred to as the "European SAR/Galileo Coverage Area"- ECA (coverage area of the combined Maspalomas, Spitsbergen and Larnaca SAR/Galileo MEOLUT Facilities) and the 19.6 million square kilometres that is referred to as the "Indian Ocean SAR/Galileo Coverage Area" IOCA (coverage area of the La Reunion SAR/Galileo MEOLUT Facility). This includes as a minimum all SAR areas under the responsibilities of European territories. The ECA and the IOCA jointly form the European SAR/Galileo Coverage (SGC) which sets the boundary limits of the SAR/Galileo Forward Link Service.
+
+The European SAR/Galileo Coverage Area, represented by the white contour line on Figure 3, is the coverage area declared to Cospas-Sarsat as a result of the 12-channel MEOLUT combining the SAR/Galileo MEOLUT Facilities of Maspalomas, Spitsbergen and Larnaca, and is bounded by the following four geographic coordinates:
+
+• E-SGC1: 85.00° N 41.20° E in the Arctic Ocean
+• E-SGC2: 29.18° N 37.07° E in Saudi Arabia
+• E-SGC3: 05.00° N 38.00° W in the Atlantic Ocean
+• E-SGC4: 75.76° N 77.87° W in the Baffin Bay
+
+⁷ The SAR/Galileo FLS also fully exploits signals relayed by the other commissioned MEOSAR space segment providers as defined in [RD5]
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii     5
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+**Figure 3 – European SAR/Galileo Coverage Area and Associated SAR/Galileo Sites**
+
+The Indian Ocean SAR/Galileo Coverage Area, represented by the white contour line on Figure 4, is the coverage area declared to Cospas-Sarsat as the service area of the La Reunion SAR/Galileo MEOLUT Facility and is a circle of 2500km radius centred on the La Reunion SAR/Galileo MEOLUT Facility located at: 20.91° S, 55.51° E.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    6
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+![Globe showing Indian Ocean region with Reunion and Kerguelen marked, and three icons indicating SAR/Galileo sites in the circled area]
+
+**Figure 4 – Indian Ocean SAR/Galileo Coverage Area and associated SAR/Galileo Sites**
+
+## 3.2 SAR/Galileo Return Link Service
+
+The Galileo Return Link Service (RLS) is a free-of-charge global service implemented with the support of, and in cooperation with, Cospas-Sarsat and is available to 1st and 2nd generation<sup>8</sup> 406MHz C/S compatible beacons transmitting according to the RLS protocol<sup>9</sup>.
+
+The RLS, offered firstly by Galileo, enables a communication link to relay data (Return Link Messages, RLM) back to the originating beacon. The Galileo RL service is conceived and implemented as independent of the C/S satellite system (LEOSAR, GEOSAR, MEOSAR) used for the detection and independent location confirmation of the C/S distress beacons.
+
+The first function of the RLS is the automatic Acknowledgment Service also referred as Type-1 Acknowledgement or System Acknowledgment. This service can only be triggered by the detection of the alert signal of a compatible distress beacon and provides the end-user of a distress beacon with a confirmation of the detection of the alert and of the determination of its location by the Cospas-Sarsat system.
+
+The RLS is a joint effort between Cospas-Sarsat and the Galileo Programme, as it is supported on the one hand by the existing Cospas-Sarsat system and on the other hand, by the Galileo service facility called Return Link Service Provider (RLSP). The RLSP is in charge of securely providing the interface between the French MCC (or the Spanish MCC as back-up of the French MCC) and Galileo core infrastructure, enabling the
+
+<sup>8</sup> Refer to [RD4] and [RD12] for 1st and 2nd generation specifications.
+
+<sup>9</sup> RLS Protocol is defined in [RD4] and [RD12]
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    7
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+transmission of Acknowledgement RLMs to the relevant Galileo satellites that are in view of the beacon, as depicted in the blue-dashed arrows in Figure 5.
+
+The RLS also includes a test service, to test the acknowledgement function of RLS-capable beacons. Upon request within RLS Location Test Protocol from an RLS-capable beacon, a so-called "Test RLM" is automatically generated to acknowledge it.
+
+**Figure 5 – SAR/Galileo RLS Integration into Cospas-Sarsat**
+
+The figure shows a system diagram with the following components and flows:
+
+- **GPS and Glonass satellites** at the top
+- **Galileo Satellites** (marked as 2) with bidirectional communication:
+  - Forward Link 1544 MHz (orange arrow going down)
+  - Ack Write (orange arrow going up)
+  - Return link uplink (blue dashed arrow)
+- **RLM MSS** (blue dashed arrow) connecting to satellites
+- **Emergency Beacons** (marked as 1) including:
+  - ELT (Emergency Locator Transmitter)
+  - EPIRB (Emergency Position Indicating Radio Beacon)
+  - PLB (Personal Locator Beacon)
+  - Distress Signal from Emergency Beacons
+- **Galileo System** receiving signals
+- **RLMR** (marked as 5) with bidirectional connection to RLSP
+- **RLSP** (Return Link Service Provider) connected to:
+  - FMCC (French Mission Control Centre)
+  - SPMCC (Spanish Mission Control Centre) as Backup Procedure
+- **EU MEOLUT** (marked as 3) receiving RLM_Request
+- **Mission Control Centres** (marked as 4) sending RLM_Request
+- **SAR Response** (helicopter icon) at the right
+
+Based on the Return Link Message Request bits encoded in the Forward Link Alert Message (FLAM) transmitted by the distress beacon and distributed by the Cospas-Sarsat MCC network to the RLSP, the Return Link Acknowledgement Service automatically transmits (without human intervention) RLMs back to the person(s) in distress, allowing them to receive a confirmation of the detection and independent determination of its location by the Cospas-Sarsat system¹⁰.
+
+To enable this function, the beacon must transmit the FLAM according to the Return Link Service Protocol¹¹, indicating that an acknowledgment of the distress alert reception is requested. Upon estimation of the beacon location, an RLM_Request is issued by the MCC whose service area covers the beacon's confirmed position and the request is transmitted following the Cospas-Sarsat Data Distribution Plan¹² to the FMCC (French Mission Control Centre) or the SPMCC (Spanish Mission Control Centre) in back-up configuration, the designated interfaces between C/S ground segment and Galileo.
+
+In turn, the RLSP generates an RLM transmission Request (RLMR) based on the content of the original Forward Link Alert Message. The RLMR is processed by the Galileo Core infrastructure and a Return Link
+
+----
+
+¹⁰ The Return-Link Service Acknowledgement type 1 does not acknowledge that SAR operation was triggered.
+
+¹¹ Defined in [RD4] and [RD12]
+
+¹² Refer to [RD2] for further details on the Cospas-Sarsat Data Distribution Plan
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    8
+
+
+
+
+
+Message (RLM) is uplinked to suitable Galileo satellites until the RLM is broadcast to the originating beacon via the Galileo E1 signal.
+
+To maximise the RLM probability of reception, for each transmission slot, the RLM is sent through two Galileo satellites in parallel (which is transparent from the beacon perspective) and repeated several times in accordance with the Cospas-Sarsat RLS beacon GNSS operation cycle¹³. The selection of the satellites to be used for the transmission is made by the RLSP through a specific algorithm and cannot be known in advance by the GNSS receiver embedded in the beacon. Thus, the beacon should track all Galileo satellites in view that transmit Navigation Messages in the E1 frequency band to achieve the best service performance.
+
+After receipt of the RLM by the beacon, subsequent beacon transmissions activate an RLM receipt status flag in the FLAM, which is then distributed via the Cospas-Sarsat MCC network to the RLSP. Once notified, the Galileo system stops sending RLMs back to the beacon. If the RLM reception acknowledgment is not received, the transmission continues until 24 hours have elapsed since the first RLM_Request was received by the RLSP.
+
+## 3.2.1 SAR/Galileo RLM Content
+
+The SAR/Galileo Return Link Acknowledgment Service is based on the RLM short format structure depicted in Figure 6
+
+The RLMs are then integrated in the Galileo E1 signal (1575.42MHz) I/NAV message frames, as further detailed in the Galileo Open Service and the Galileo Signal in Space ICD documents¹⁴. The Galileo I/NAV message frame structure includes a SAR field in every odd page of the E1-B subframe. An odd page is transmitted every 2 seconds. Each SAR field is 22 bits long, which includes 2 signalling bits and 20 data bits. As a result, a short RLM (80bits) is transmitted in 8 seconds, i.e. 4 SAR fields.
+
+The RLS also includes a test service and associated test RLM as per previous section.
+
+| Return Link Service               | Beacon ID<br/>60<br/>Bit 1 | Beacon ID<br/>60<br/>To... | Message Code<br/>4<br/>Bit 60 | Message Code<br/>4<br/>Bit 61 | Message Code<br/>4<br/>Bit 62 | Message Code<br/>4<br/>Bit 63 | Message Code<br/>4<br/>Bit 64 | Message Code<br/>4<br/>Bit 65 | Short-RLM Parameters Field<br/>16<br/>Bit 66 | Short-RLM Parameters Field<br/>16<br/>Bit 67 | Short-RLM Parameters Field<br/>16<br/>Bit 68 | Short-RLM Parameters Field<br/>16<br/>Bit 69 | Short-RLM Parameters Field<br/>16<br/>Bit 70 | Short-RLM Parameters Field<br/>16<br/>Bit 71 | Short-RLM Parameters Field<br/>16<br/>Bit 72 | Short-RLM Parameters Field<br/>16<br/>Bit 73 | Short-RLM Parameters Field<br/>16<br/>Bit 74 | Short-RLM Parameters Field<br/>16<br/>Bit 75 | Short-RLM Parameters Field<br/>16<br/>Bit 76 | Short-RLM Parameters Field<br/>16<br/>Bit 77 | Short-RLM Parameters Field<br/>16<br/>Bit 78 | Short-RLM Parameters Field<br/>16<br/>Bit 79 | Short-RLM Parameters Field<br/>16<br/>Bit 80 | Short-RLM Parameters Field<br/>16 | Short-RLM Parameters Field<br/>16 | Short-RLM Parameters Field<br/>16 | Short-RLM Parameters Field<br/>16 | Short-RLM Parameters Field<br/>16 |
+| --------------------------------- | -------------------------- | -------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| Acknowledgment Service<br/>Type-1 | 15 HEX ID                  |                            | 0                             | 0                             | 0                             | 1                             | 1                             | 0                             |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              | Spares                                       | Parity                                       |                                   |                                   |                                   |                                   |                                   |
+| Test Service                      | 15 HEX ID                  |                            | 1                             | 1                             | 1                             | 1                             |                               |                               |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              |                                              | Spares                                       | Parity                                       |                                   |                                   |                                   |                                   |                                   |
+
+
+Figure 6 – Return Link Message Content
+
+## 3.3 SAR/Galileo Full Operational Capability Service Infrastructure
+
+The Galileo System is composed of a Core Infrastructure and a few Service Facilities. The Core Infrastructure, in turn, comprises a Space Segment (3.3.1) and a Ground Segment (3.3.2).
+
+¹³ Refer to [RD4] and [RD12] for further details on the Cospas-Sarsat GNSS beacon receiver operation
+¹⁴ Refer to [RD9] and [RD10] for further details on the RLM contents broadcasted by the Galileo Navigation Signals
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                                                     9
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+The following sections describe the relevant Galileo infrastructure (space, ground, service facilities) involved in the SAR/Galileo FOC service provision.
+
+## 3.3.1 SAR/Galileo Space Segment
+
+The Galileo Space Segment, once fully deployed, will consist of a 24/3/1 Walker constellation of 24 medium Earth orbit satellites plus spares arranged in 3 orbital planes, with their ascending nodes uniformly distributed at intervals of 120 degrees, inclined at 56 degrees with respect to the equator. With the satellites taking about 14 hours to orbit Earth at altitudes of 23.222km, there will always be at least four satellites visible anywhere on the Earth's surface (subject to local geography and shadowing).
+
+**Figure 7 – Galileo FOC Satellite**
+
+Galileo satellites, in addition to the Galileo Open Service (OS) navigation payload and in support of Cospas-Sarsat MEOSAR, are fitted with SAR Repeater instruments (SARR). The Galileo SARR comprises transparent bent pipe type SAR Transponders and SAR receiving and transmitting antennas. They receive Cospas-Sarsat compliant<sup>15</sup> 406MHz distress signals and retransmit them in the L-band at 1544.1MHz, without on-board processing, data storage, or demodulation, to any MEOLUTs in view, worldwide<sup>16</sup>. Alternatively, the Return Link Message broadcast is done via the Galileo E1 navigation signal.
+
+A detailed description of the SAR/Galileo payload is provided in [RD5] and the list of in-orbit Galileo satellites and associated operational capability to support the Forward and Return Link Service is provided in A.3
+
+### 3.3.1.1 Repeater Operating Modes
+
+The Galileo SAR Repeater (SARR) has three operating modes and can operate in two bandwidth configurations. The operational modes include the Normal (90kHz) and Narrow (50kHz) bandwidth modes, as well as the possibility to operate with adjustable Fixed Gain Mode (FGM) or Automatic Level Control (ALC) modes.
+
+The operational modes of the SAR Repeater are:
+
+1. ON mode:
+
+<sup>15</sup> Refer to [RD5] and [RD6] for Cospas-Sarsat Space Segment specifications.
+
+<sup>16</sup> Refer to [RD8] for Cospas-Sarsat MEOLUT commissioning standard
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii 10
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+• ALC (Automatic Level Control): The transponder gain in ALC mode is self-regulated to ensure stable EIRP, the operational gain is automatically adjusted to obtain a predefined power at the output of the SAR transponder.
+  - o ALC90: 90kHz BW (normal bandwidth mode); **default mode**
+  - o ALC50: 50kHz BW (narrow-band mode)
+• FGM (Fixed Gain Mode): The operational gain in FGM is set by telecommand in a 30dB range, with nominal step size of 1dB. The range is adjusted so that when the transponder is in the 90kHz bandwidth mode, and at the input of the repeater there is only thermal noise, the nominal output power of 7dBW is achieved for a gain step of 22dB. Then, the overall gain of the SAR Repeater in the reference gain setting in FGM (including the gains of the receiving and transmitting antennas) is around 182dB at the edge of coverage.
+  - o FGM90: 90kHz BW (normal bandwidth mode)
+  - o FGM50: 50kHz BW (narrow-band mode)
+2. **STANDBY mode:** transponder is powered up, but RF power is OFF.
+3. **OFF mode:** transponder is not powered.
+
+The SAR Repeater main characteristics according to the bandwidth mode are shown in Table 1 and defined in detail in [RD5].
+
+| SAR/Galileo Repeaters Parameter | Normal Bandwidth | Narrow Bandwidth | Unit |
+| ------------------------------- | ---------------- | ---------------- | ---- |
+| Bandwidth                       | 90               | 50               | kHz  |
+| Receive centre frequency        | 406.050          | 406.043          | MHz  |
+| Group delay Galileo IOV family  | 27               | 38               | μs   |
+| Group delay Galileo FOC family  | 48               | 68               | μs   |
+
+
+**Table 1 – Specific SAR/Galileo Repeaters Characteristics in Normal and Narrowband Modes**
+
+## 3.3.2 Galileo Ground Segment
+
+An overview of the Galileo System is provided in Figure 8. It is essentially composed of the Ground Control Segment (GCS) and the Ground Mission Segment (GMS) as well as additional infrastructure specifically dedicated to the provision of the SAR/Galileo Services (Forward and Return link), which is in turn illustrated in Figure 9:
+
+• Two Galileo Control Centres (GCC), implementing hot-redundant ground control (i.e. GCS) and ground mission (i.e. GMS) capabilities at each site.
+• A worldwide dedicated real-time Galileo Data Distribution Network (GDDN) and an associated secure network for External Services (EDDN).
+• A worldwide network of Galileo Sensor Stations (GSS) which collects and forwards Galileo SIS measurements and data to the GCCs in real time.
+• A worldwide network of Galileo Uplink Stations (ULS) which distributes and uplinks the mission data (including the RLMs) to the Galileo constellation.
+• A worldwide network of Telemetry, Tracking & Control stations (TTC stations) which collects and forwards telemetry data generated by the Galileo satellites, and distributes and uplinks the control commands required to maintain the Galileo satellites and constellation in nominal operational conditions.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                11
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+The infrastructure specifically dedicated to the provision of the SAR/Galileo service is referred to as SAR/Galileo Ground Segment (SGS) and is further described in the following sections.
+
+**GALILEO SYSTEM**
+
+```mermaid
+graph TB
+    SAT1[Satellite] -->|S-Band| GCS
+    SAT2[Satellite] -->|C-Band| GMS
+    SAT3[Satellite] -->|Signal in Space| GSS
+    
+    GCS[TT&C<br/>Galileo Control Segment GCS]
+    GMS[ULS<br/>Galileo Mission Segment GMS]
+    GSS[GSS<br/>Galileo Sensor Stations]
+    
+    GCS -->|Control Data| GDDN1[GDDN]
+    GMS -->|Mission Data RLM| GDDN2[GDDN]
+    GSS --> GDDN3[GDDN]
+    
+    GDDN1 --> GCC
+    GDDN2 --> GCC
+    GDDN3 --> GCC
+    
+    GCC[GCC-I ↔ GCC-D<br/>Galileo Control Center]
+    
+    GCC -->|EDDN| SERVICES
+    
+    SERVICES[Other Service Facilities | SAR Galileo Service Centre<br/>RLSP]
+```
+
+**Figure 8 – Galileo System Overview and Interface with the SAR/Galileo Ground Infrastructure**
+
+## 3.3.3 SAR/Galileo Ground Segment
+
+The SAR/Galileo Ground Segment (hereinafter SGS) displayed in Figure 9 consists of two components, the Forward Link and the Return Link associated infrastructure:
+
+• The SAR/Galileo Forward Link Ground Segment is a geographically distributed segment consisting of three dish-antennas MEOLUTs with four measurement channels each (antennas and associated TOA/FOA signal measurement processor) and one active phased-array antenna MEOLUT with 64 L-band antenna receiver elements and associated processing component, a Service Centre hosting the MEOLUT Tracking Coordination Facility (MTCF), a set of distributed Reference Beacons (REFBE) and Calibration Beacons (CALBE) and a dedicated network (SARN) for communication purposes.
+
+• The SAR/Galileo Return Link Ground Segment is composed of the Return Link Service Provider (RLSP), which is the unique facility in charge of generating the Return Link Message. It is located within the SAR/Galileo Service Centre (SGSC) and interfaces on one side with the Cospas-Sarsat network through the French Mission Control Centre (collocated with the RLSP) or the Spanish Mission Control Centre in back-up mode, and on the other side with the Galileo System.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+**Figure 9 – SAR/Galileo FL and RL Ground Infrastructure Overview**
+
+The SAR/Galileo Service Centre (SGSC) located in CNES (Toulouse, France) is the designated centre for the management of the SAR/Galileo Service. The SGSC also hosts the MEOLUT Tracking Coordination Facility (3.3.3.1.5), a Reference Beacon (3.3.3.1.5), the Return Link Service Provider which is the only element connected to the Galileo Core Infrastructure, and the Central Warehouse for all the SAR Integrated Logistic Support (ILS) related processes.
+
+## 3.3.3.1 Forward Link Infrastructure
+
+### 3.3.3.1.1 SAR/Galileo MEOLUT
+
+The SAR/Galileo MEOLUT is essentially composed of four MEOLUT Facilities spread over four distinct locations in Maspalomas (Spain), Larnaca (Cyprus), Spitsbergen (Norway) and La Reunion (France).
+
+The SAR/Galileo MEOLUT Facilities of Maspalomas, Spitsbergen and Larnaca are fitted with four reception dish antennas each (i.e. channels) the tracking of which is coordinated by the MEOLUT Tracking Coordination Facility (see section 3.3.3.1.2). The twelve coordinated antennas of the three SAR/Galileo MEOLUT Facilities of the ECA (Larnaca, Maspalomas and Spitsbergen) operate nominally through the exchange of signal measurement data (TOA/FOA). These are the SAR/Galileo SAR/Galileo MEOLUT Facilities providing the ECA.
+
+The SAR/Galileo MEOLUT Facility of La Reunion is a new facility of the SAR/Galileo Forward Link Ground Segment. It is composed of one active phased-array antenna MEOLUT with 64 L-band antenna receiver elements and associated processing component. La Reunion SAR/Galileo MEOLUT Facility provides the IOCA.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    13
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+The coordinated tracking algorithm enables the optimisation of the FLS performance and the coverage of each SAR/Galileo MEOLUT Facility of the ECA, considering both Ground and Space Segment availabilities. In case of network or MTCF outage, the Maspalomas, Larnaca and Spitsbergen MEOLUT Facilities can generate detection and location data to their associated MCC (SPMCC, CYMCC and NMCC) based on a locally computed tracking plan. This mode of operation is however, not considered as an operational mode for the SAR Forward Link Service. On the other hand, La Reunion MEOLUT Facility being a phased-array antenna MEOLUT does not require a coordinated plan as it always tracks all satellites in view.
+
+The main functions of the SAR/Galileo MEOLUT Facilities are to:
+
+• track in view MEOSAR satellites,
+• detect beacon distress alert messages and compute beacon independent location and
+• provide alert messages to the associated MCC using standard Subject Indicator Types (SIT) messages as defined in C/S documentation [RD1] and [RD3].
+
+In addition to the above main functions, the SAR/Galileo MEOLUT Facilities have some specific features:
+
+• Detection and Location of 406MHz interferers (SIT 161)
+• Transmission of MEOLUT Operational, Warning and Alarm SIT status messages (SIT650, SIT652, SIT651 respectively for the SAR/Galileo MEOLUT Facilities of the ECA, and SIT656, SIT658, SIT657 for La Reunion SAR/Galileo MEOLUT Facility) to the associated SAR/Galileo MEOLUT Facility MCCs (Table 2)
+
+Only for Maspalomas, Larnaca and Spitsbergen MEOLUT Facilities:
+
+• Execution of a SAR/Galileo MEOSAR satellite coordinated tracking plan (generated by MTCF) or a locally generated one (generated by the SAR/Galileo MEOLUT Facility itself, without accounting for the other networked SAR/Galileo MEOLUT Facilities),
+• Exchange of TOA/FOA measurements with the other two MEOLUT Facilities and with MTCF
+
+Table 2 below lists the precise location and relevant details of the four SAR/Galileo MEOLUT Facilities.
+
+| SAR/GalileoMEOLUTs                 | C/S ID | AssociatedMCC | Latitude \[°] | Longitude \[°] | Altitude \[m] |
+| ---------------------------------- | ------ | ------------- | ------------- | -------------- | ------------- |
+| Spitsbergen/EU<br/>MEOLUT (Norway) | 2574   | NMCC          | 78.2305       | 15.3707        | 430           |
+| Maspalomas/EU<br/>MEOLUT (Spain)   | 2244   | SPMCC         | 27.7614       | -15.6348       | 130           |
+| Larnaca/EU MEOLUT<br/>(Cyprus)     | 2091   | CYMCC         | 34.8651       | 33.3838        | 277           |
+| La Reunion/EU<br/>MEOLUT (France)  | 6601   | FMCC          | -20.9089      | 55.5136        | 95            |
+
+
+**Table 2 – SAR/Galileo MEOLUT Facilities locations**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    14
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+Figure 10 – Maspalomas EU/MEOLUT Facility
+
+Figure 11 – Spitsbergen EU/MEOLUT Facility
+
+Figure 12 – Larnaca EU/MEOLUT Facility
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    15
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+Figure 13 – La Réunion EU/MEOLUT Facility
+
+### 3.3.3.1.2 MEOLUT Tracking Coordination Facility (MTCF)
+
+The MEOLUT Tracking Coordination Facility is deployed in CNES (Toulouse, France) and is the designated SAR/Galileo Facility for monitoring and controlling the ECA SGS infrastructure and Service. Its main functions are threefold:
+
+• Tracking Schedule management: The MTCF is in charge of receiving and processing MEOSAR satellite orbital data through the MEOSAR GNSS Signal in Space ephemeris, almanacs, the SAR server or 3rd party Two Line Elements. On that basis, it implements an efficient algorithm to generate an optimised and coordinated SGS tracking plan that is disseminated to the three SAR/Galileo MEOLUT Facilities of the ECA (Maspalomas, Larnaca and Spitsbergen), taking advantage of the network configuration for optimal service performance and coverage. Moreover, the MTCF enables the addition of several external MEOLUTs in the tracking coordination process and for TOA/FOA exchange.
+
+• Data provision and archiving: The MTCF provides a redundant link for TOA/FOA files exchange with the four SAR/Galileo MEOLUT Facilities. Additionally, the MTCF is the designated long-term data archive facility for the entire SAR/Galileo Ground Segment.
+
+• Performance and functional monitoring: The MTCF provides overall SAR mission (including RLS monitoring) and tracking performance statistics on the SAR/Galileo MEOLUT Facilities, as well as the repository for beacon alert messages and TOA/FOA measurements from the European Reference Beacons detected by the SAR/Galileo MEOLUTs. It ensures the overall Forward Link Service and overall SGS infrastructure monitoring.
+
+### 3.3.3.1.3 KPI Collection Platform
+
+The SAR/Galileo operational data are continuously collected and automatically generated by a dedicated infrastructure called KPIs Collection Platform (KCP) which is hosted within the MTCF.
+
+The bursts transmitted by the SAR/Galileo Reference Beacons (see section 3.3.3.1.5) and dedicated RLMRs generated from the RLSP with a specific pattern are collected by the SAR/Galileo MEOLUTs and periodically
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    16
+
+
+
+
+
+transferred to the KCP, which generates near real-time SAR/Galileo FL and RL Service Key Performance Indicators used for service monitoring purposes.
+
+### 3.3.3.1.4 SAR/Galileo Network
+
+All communications between the different SAR/Galileo Facilities, namely the SAR/Galileo MEOLUT Facilities, the 5 Reference Beacons in ECA and MTCF, are facilitated through the SAR/Galileo Network (SARN). Each hosting entity is connected to the SARN through its own country's National Research and Education Network (NREN) which are then connected through a pan-European communications backbone infrastructure called GEANT (Gigabit European Advanced Network Technology).
+
+The NRENs involved in the SARN are:
+
+• CYNET for Cyprus,
+• RENATER for France,
+• NORDUnet for Norway,
+• FCCN for Portugal,
+• RedIRIS for Spain.
+
+### 3.3.3.1.5 SAR/Galileo Reference Beacons
+
+The SAR/Galileo Service is supported by a network of eight Reference Beacons (REFBE) geographically distributed across the service area in Toulouse (France), Spitsbergen (Norway), Santa Maria (Portugal), Maspalomas (Spain), Larnaca (Cyprus), Greenland (Denmark), Kerguelen (France) and La Reunion (France). These Reference Beacons deployed over the SGC are used to continuously monitor the performance of the SAR/Galileo Services (KPI collection, refer to 3.3.3.1.3). Each REFBE, the main parameters of which are provided in Table 3, is fitted with a vertical linear polarised antenna with a radiation pattern equivalent to a standard C/S beacon [RD4]. The REFBEs are synchronised with Universal Coordinated Time (UTC) and transmits in 1 burst every 50 seconds, according to a specific scheme on a permanent basis, as presented in Table 3 below.
+
+| Reference Beacons                         | Beacon ID       | Frequency\[MHz] | Synch StartTime | Latitude\[°] | Longitude\[°] | Altitude\[m] |
+| ----------------------------------------- | --------------- | --------------- | --------------- | ------------ | ------------- | ------------ |
+| TLS-EU1<br/>Toulouse-France               | 9C621A74630F1D0 | 406.034         | HH : 00': 07''  | 43.56037     | 1.48026       | 209          |
+| SBG-EU2<br/>Spitsbergen-<br/>Norway       | A0434CEB630F190 | 406.034         | HH : 10': 19''  | 78.23074     | 15.37046      | 486          |
+| SMR-EU3<br/>Santa Maria-<br/>Portugal     | 998349EA630F100 | 406.034         | HH : 20': 31''  | 36.99658     | -25.13622     | 348          |
+| MSP-EU4<br/>Maspalomas-Spain              | 9C027D2D630F0A0 | 406.034         | HH : 00': 43''  | 27.76151     | -15.63427     | 180          |
+| LNC-EU5<br/>Larnaca-Cyprus                | 9A2299AE630F010 | 406.034         | HH : 10': 54''  | 34.86539     | 33.38375      | 322          |
+| SON-EU6<br/>Sondrestromfjord-<br/>Denmark | A96348E6630F150 | 406.034         | HH : 20': 02''  | 67.00070     | -50.63104     | 205          |
+| REU-EU7                                   | D282AC3C630F1C0 | 406.034         | HH : 20': 46''  | -20.90918    | 55.51406      | 95           |
+
+
+<sup>17</sup> Altitude above WGS84 ellipsoid
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    17
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| Reference Beacons | Beacon ID | Frequency<br>[MHz] | Synch Start<br>Time | Latitude<br>[°] | Longitude<br>[°] | Altitude¹⁷<br>[m] |
+|-------------------|-----------|-------------------|---------------------|-----------------|------------------|-------------------|
+| La Reunion-France<br>KLN-EU8<br>Kerguelen-France | CF63EA66630F0C0 | 406.034 | HH : 00': 24'' | -49.34868 | 70.21970 | 28 |
+
+**Table 3 – SAR/Galileo REFBE Technical Details**
+
+Figure 14 below illustrates the SAR/Galileo REFBE transmission pattern. At the "Synchronisation Start Time" (see 4th column of Table 3 above), the transmission starts for a duration of 10 minutes, then stops and resumes after 30 minutes (2x10 minutes of transmission per hour or alternatively, 2x12 bursts per hour).
+
+| Minute: | 00:00:00                             | 00:10:00                             | 00:20:00                             | 00:30:00                             | 00:40:00                             | 00:50:00                             | 01:00:00 |
+| ------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | -------- |
+| TLS-EU1 | 00:00:07<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:09:17                             |                                      | 00:30:07<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:39:17                             |                                      |          |
+| SBG-EU2 |                                      | 00:10:19<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:19:29                             |                                      | 00:40:19<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:49:29                             |          |
+| SMR-EU3 |                                      |                                      | 00:20:31<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:29:41                             |                                      | 00:50:31<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:59:41 |
+| MSP-EU4 | 00:00:43<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:09:53                             |                                      | 00:30:43<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:39:53                             |                                      |          |
+| LNC-EU5 |                                      | 00:10:54<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:20:04                             |                                      | 00:40:54<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:50:04                             |          |
+| SON-EU6 |                                      |                                      | 00:20:02<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:29:12                             |                                      | 00:50:02<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:59:12 |
+| REU-EU7 |                                      |                                      | 00:20:46<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:29:56                             |                                      | 00:50:46<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:59:56 |
+| KLN-EU8 | 00:00:24<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:09:34                             |                                      | 00:30:24<br/>↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ | 00:39:34                             |                                      |          |
+
+
+**Figure 14 – Reference Beacons Transmission Schedule Within One Hour**
+
+### 3.3.3.1.6 Galileo SAR Server
+
+The Galileo SAR Server is a complementary Galileo infrastructure hosted and operated by the European GNSS Service Centre that provides support to the SAR/Galileo Service and worldwide SAR community by offering Galileo constellation orbital products in a precise and timely manner.
+
+The SAR Server can be accessed worldwide through a secure FTP connection and its products serve as a redundant source of Galileo constellation orbital parameters in case they are not nominally broadcast through the Galileo Signal in Space (L-Band navigation signals) or could not be recovered from the local GNSS receivers.
+
+The MTCF interfaces permanently with the SAR server, retrieving the most up-to-date Galileo ephemeris and transmitting them to the four SAR/Galileo MEOLUT Facilities.
+
+There are currently no MPL guaranteed for the provision of this complementary service, therefore it is offered on a best-effort basis. Nevertheless, the performance and availability of the Galileo SAR Server is monitored by the EUSPA and reported monthly.
+
+### 3.3.3.1.7 SAR/Galileo Calibration Beacons
+
+La Reunion SAR/Galileo MEOLUT Facility requires precise and continuous time and frequency calibration transmissions in co-visibility to achieve the MPL defined in section 5.
+
+Latest upgrades of the SGS infrastructure incorporate five calibration beacons (CALBE) collocated with the SAR/Galileo MEOLUT Facilities. Each CALBE is fitted with a vertical linear polarised antenna with a radiation pattern equivalent to a standard first generation beacon (FGB as per [RD4]) and a second generation beacon (SGB as per [RD12]) allowing calibration functions for the two types of distress beacons operated as part of the Cospas-Sarsat system.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    18
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+The CALBEs transmit on a permanent basis one self-test orbitography protocol burst every 150 seconds in both FGB and SGB configurations.
+
+The main characteristics for the 5 CALBEs are given in the Table 4.
+
+| CalibrationBeacons           | Spitsbergen -Norway               | Maspalomas -Spain            | Larnaca -Cyprus              | La Reunion 1 -France        | La Reunion 2 -France           |
+| ---------------------------- | --------------------------------- | ---------------------------- | ---------------------------- | --------------------------- | ------------------------------ |
+| Encoded<br/>Name             | CAL-SVA                           | CAL-MAP                      | CAL-LAR                      | RE1 CLB                     | CAL-RUN                        |
+| Latitude \[°]                | 78.23074                          | 27.76151                     | 34.86539                     | -20.909178                  | -20.909178                     |
+| Longitude \[°]               | 15.37046                          | -15.63427                    | 33.38375                     | 55.514058                   | 55.514058                      |
+| Altitude18 \[m]              | 486,731                           | 180,561                      | 322,845                      | 95                          | 95                             |
+| FGB Beacon<br/>ID            | A042EE29634<br/>BF80              | 9C02EE29627E<br/>2D0         | 9A22EE29629E<br/>2A0         | 9C62EE2962AC<br/>3C0        | 9C62EE2962AF<br/>260           |
+| FGB<br/>Frequency<br/>\[MHz] | 406.052                           | 406.052                      | 406.052                      | 406.052                     | 406.052                        |
+| FGB Start<br/>Time           | HH:00':08''                       | HH:00':08''                  | HH:00':08''                  | HH:00':12''                 | HH:00':12''                    |
+| Antenna<br/>Polarisation     | Linear (V)                        | Linear (V)                   | Linear (V)                   | Linear (V)                  | Right Hand<br/>Circular (RHCP) |
+| SGB Beacon<br/>ID            | A057FFFF4CC<br/>F0000000000<br/>0 | 9C17FFFE7D0F<br/>00000000000 | 9A37FFFE998F0<br/>0000000000 | D282AC1D92EA<br/>7300000000 | D282AF1992EA<br/>73000000000   |
+| SGB<br/>Frequency<br/>\[MHz] | 406.051                           | 406.051                      | 406.051                      | 406.051                     | 406.051                        |
+| SGB Start<br/>Time           | HH : 01': 23''                    | HH : 02': 13''               | HH : 00': 33''               | HH: 00':14''                | HH: 01': 14''                  |
+
+
+**Table 4 – SAR/Galileo CALBE transmission details in FGB configuration**
+
+## 3.3.3.2 Return Link Service Infrastructure
+
+The Return Link Service Provider (RLSP) is the Galileo Service Facility deployed within the SAR/Galileo Service Centre (CNES Toulouse, France) that enables the provision of the SAR/Galileo Return Link Service.
+
+<sup>18</sup> Altitude above WGS84 ellipsoid
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                  19
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+The RLSP ensures the interface on one side with the Cospas-Sarsat system and on the other side, with the Galileo System (Ground Mission Segment) for return link messages uplink to the Galileo satellites.
+
+The RLSP infrastructure has been designed for unmanned continuous operation with a high level of internal redundancy including an Operational chain and a Validation chain, used for software verification, operation validation and training.
+
+The main functionalities of RLSP are threefold:
+
+1. Management of the Return Link Messages:
+
+   The RLSP receives and manages the RLM Requests (RLM_Request) from the FMCC (or the SPMCC in back-up configuration) and sends the RLM Transmission Requests (RLMR) to the Galileo system with the list of satellites for RLM broadcast selected according to the defined Galileo spacecraft selection algorithm.
+
+   The RLSP also ensures the synchronisation of the transmissions of the RLM in the appropriate transmission slots according to the C/S beacon activation strategy defined in [RD4] to maximise the probability of reception of the RLM by the distress beacons.
+
+2. Management of the Interfaces:
+
+   The RLSP acts as the single interface between the systems involved in the RLM distribution chain, implementing seamless and secure end-to-end dataflow connectivity (e.g. receiving RLM_Request SIT formatted from FMCC (or SPMCC in back-up configuration) and generating a Galileo RLMR formatted packet for final broadcast).
+
+3. Monitoring and Management of the Data:
+
+   The RLSP is designed to work autonomously without human intervention. To ensure a high availability of the RLS service, it is monitored on a 24/7 basis. Additionally, it also collects and archives the relevant data flows through the involved interfaces (traffic, logs, distress event data) for the purpose of service monitoring, troubleshooting, accountability and generation of statistical data relative to the SAR/Galileo RLS.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                    20
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# 4 SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE CHARACTERISTICS
+
+The SAR/Galileo FOC MPLs presented in this document only target the service contributors that are under full control of the Galileo Programme. This section provides further details on the service characteristics while also listing certain conditions, exclusions, and assumptions to be taken by users.
+
+## 4.1 Space Segment
+
+The SAR/Galileo Forward Link Service can fully exploit signals relayed by the other commissioned and operationally available MEOSAR payloads for an increased FL Service, performance and coverage. Although MPLs contained in this document focus on the use of Galileo means, other MEOSAR space segments commissioned by Cospas-Sarsat contribute to the SAR/Galileo FOC Service Provision phase.
+
+The most updated Galileo constellation information is available from the European GNSS Service Centre website where up to date status and active Notice Advisory to Galileo User (NAGU) notifications are published.
+
+The operational status of the Galileo SAR repeaters is notified to the end users through the Cospas-Sarsat operational network from the French MCC on behalf of the SGDSP (see section A.2) and is available on the European GNSS Service Centre<sup>19</sup> and at the Cospas-Sarsat website MEOSAR system status section<sup>20</sup>.
+
+## 4.2 SAR/Galileo Forward Link Service States in ECA
+
+Three Service States are defined for the SAR/Galileo Forward Link Service in the ECA: Nominal, Degraded and Severely Degraded, which are detailed in following Table 5:
+
+| ECA FLS States | Description                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nominal**    | All cases not described as "Degraded" and "Severely Degraded" are considered as nominal.                                                                                                                                                                                                                                                                                                                      |
+| **Degraded**   | ECA SGS is in degraded status OR not in operational status for less than 24h continuously OR less than 48h cumulated over a calendar month,<br/><br/>OR loss of communication connections between 1 or 2 (ECA) SAR/Galileo MEOLUT Facilities and its associated MCCs for more than 1 day,<br/><br/>OR only 1 REFBE is in nominal status,<br/><br/>OR no REFBE is operational for less than 5 continuous days. |
+
+
+<sup>19</sup> GNSS Service Centre Constellation Information: www.gsc-europa.eu
+
+<sup>20</sup> Cospas-Sarsat website: http://www.cospas-sarsat.int/en/system/space-segment-status-pro/current-space-segment-status-and-sar-payloads-pro
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    21
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| ECA FLS States        | Description                                                                                                                                                                                                                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Severely<br/>Degraded | ECA SGS is not operational for more than 24h continuously OR more than 48h cumulated over a calendar month,<br/><br/>OR loss of communication connections between the 3 (ECA) SAR/Galileo MEOLUT Facilities and their associated MCCs for more than 4 hours,<br/><br/>OR all REFBEs are not operational for more than 5 continuous days. |
+
+
+**Table 5 – SAR/Galileo Forward Link Operating States Definition in ECA**
+
+The availability of the SAR/Galileo Ground Segment in ECA to support the Forward Link Service depends on the different operational status combinations of its constituent elements (SAR/Galileo MEOLUT Facilities of the ECA, SARN, MTCF, REFBE) which are not in scope of this document.
+
+## 4.3 SAR/Galileo Forward Link Service States in IOCA
+
+Three Service States are defined for the SAR/Galileo Forward Link Service: Nominal, Degraded and Severely Degraded, which are detailed in the following Table 6:
+
+| IOCA FLS States   | Description                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nominal           | All cases not described as "Degraded" and "Severely Degraded" are considered as nominal.                                                                                                                                                                                                                                                                                               |
+| Degraded          | The IOCA SGS is in degraded status OR not operational status less than 24h continuously OR less than 48h cumulated over a calendar month,<br/><br/>OR loss of communication connection between La Reunion MEOLUT Facility and its associated MCC for less than 4 hours,<br/><br/>OR no REFBE is in nominal status on the IOCA for less than 10 days.                                   |
+| Severely Degraded | The IOCA SGS is not operational for more than 24h continuously or more than 48h cumulated over a calendar month,<br/><br/>OR loss of communication connection between the La Reunion MEOLUT Facility and its associated MCC for more than 4 hours,<br/><br/>OR no REFBE is in nominal status on the IOCA for more than 10 days,<br/><br/>OR no CALBE is in nominal status on the IOCA. |
+
+
+**Table 6 – SAR/Galileo Forward Link Operating States Definition in IOCA**
+
+The availability of the SAR/Galileo Ground Segment in IOCA to support the Forward Link Service depends on the different operational status combinations of its constituent elements (La Reunion SAR/Galileo MEOLUT Facility, SARN, REFBE) which are not in scope of this document.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    22
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+## 4.4 SAR/Galileo Return Link Service
+
+### 4.4.1 Roles and Commitments
+
+The Return Link Acknowledgment Service is technically fully integrated within the Cospas-Sarsat system as it relies:
+
+• on a specific beacon transmission protocol to identify the RLS capability,
+• on the different Cospas-Sarsat LUT to reach the global coverage and
+• on the capability of the Cospas-Sarsat MCCs to process and relay any RLM request worldwide to the Galileo system.
+
+As a consequence, the overall Return Link Acknowledgment Service performance level experienced by the end user depends both on the performance of the Cospas-Sarsat system which is responsible for detecting and locating the distress alert and relaying the RLM request to the identified Galileo interface (i.e. RLSP), and on the performance of the Galileo system, which is in charge of broadcasting the RLM to the distress beacon estimated location provided by Cospas-Sarsat.
+
+The roles and responsibilities of the two different organisations involved in the RLS provision are as follow:
+
+• Cospas-Sarsat is responsible for the performance of its commissioned ground segment, linked to the detection and location of the alert and the processing of the RLM request to the appointed Galileo interface.
+• The Galileo Programme is responsible for the broadcast of the RLM towards the beacon location as estimated by Cospas-Sarsat.
+
+Therefore, the responsibility for the end-to-end Return Link Service performance is shared between Cospas-Sarsat and the Galileo Programme.
+
+### 4.4.2 SAR/Galileo Return Link Latency and Monitored Loops Definitions and Naming Conventions
+
+The following naming conventions are used to clearly identify the MPLs on the RLS latency defined in section 5.2.2 and on the stakeholders involved in the end-to-end Return Link Service Provision as reflected in Figure 15 here after.
+
+• **Cospas-Sarsat Front End Loop:**
+
+Encompasses the beacon FLAM transmission domain, the LUT data processing (alert detection and location), the MCC processing (until confirmation of alert location) and routing to the FMCC.
+
+The latency of the Cospas-Sarsat Front End Loop depends on several factors:
+
+○ MEOSAR and/or LEOSAR coverage available at the position of the distress beacon. Locations on the Earth only covered by LEOSAR experience much longer latencies than those also covered by MEOSAR.
+○ Time to achieve an estimated position of the alert at the MCC.
+○ Routing latency of the RLM_Request between the MCC responsible for the area where the alert is located and the FMCC.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    23
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+• **Galileo System Loop:**
+
+The Galileo System loop identifies the segment of the RLS processing chain that is entirely under the control of the Galileo Programme and for which the compliance with the defined configuration, availability and MPL can be expected. It goes from the RLSP input interface to the time when the selected Galileo satellite broadcasts all the navigation frames, allowing reception and processing of the RLM by the target beacon.
+
+• **RLM Delivery Loop:**
+
+The RLM Delivery Loop is broader than Galileo System Loop as it includes the duration needed for a beacon (see 3.3.3.1.5 for the REFBE example) to process the RLM. That loop is not completely within Galileo responsibility.
+
+• **End-to-End Loop:**
+
+The End-to-End Return Link Service Loop is the joint effort of both Cospas-Sarsat and Galileo Systems. It starts at the first FLAM transmission by the beacon and ends at the time of successful reception, decoding and processing by the beacon of an RLM transmitted through the Galileo SIS.
+
+• **Full Feedback Loop:**
+
+The Full Feedback loop is the scenario whereby the originating RLS beacon has received the Galileo Return Link acknowledgment message (e.g. End to End loop) and notifies the Galileo System (i.e. RLSP) to cease the broadcast of RLMs by updating the RLM receipt status flag in subsequent FLAM transmissions.
+
+| **Beacon Domain**                                                                                                              | **Cospas-Sarsat Domain** |                      | **Galileo Domain** |                      | **Beacon Domain** | **Cospas-Sarsat** | **Galileo Domain** |               |           |        |             |                      |      |               |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | -------------------- | ------------------ | -------------------- | ----------------- | ----------------- | ------------------ | ------------- | --------- | ------ | ----------- | -------------------- | ---- | ------------- |
+| Beacon TX                                                                                                                      | LUT C/S MCC              | FLAM routing to FMCC | FMCC               | RLM\_Request to RLSP | input RLSP output | RLMR uplink       | Galileo System     | RLM broadcast | Beacon RX | Beacon | LUT C/S MCC | FLAM routing to FMCC | RLSP | RLM Cancelled |
+| Corpas Sarsat Font End Loop →&#xA;Galileo System Loop →&#xA;RLM Delivery Loop →&#xA;End-to-End Loop →&#xA;Full Feedback Loop → |                          |                      |                    |                      |                   |                   |                    |               |           |        |             |                      |      |               |
+
+
+</td>
+</tr>
+</table>
+
+**Figure 15 – Return Link Delivery Chain and Stakeholder Domain of Responsibility**
+
+## 4.4.3 SAR/Galileo Return Link Service Beacon Reception and Timing Strategies
+
+To receive SAR/Galileo Return Link Messages, Cospas-Sarsat 406MHz beacons require an embedded Galileo compatible GNSS receiver that is compliant with the IEC interface standard defined for the RLS (see [RD11]) and Cospas-Sarsat Return Link beacon specifications [RD4] [RD11]. Moreover, the Return Link protocol shall be used for a beacon to request an acknowledgment message (RLM). For proper and timely RLM decoding, the beacon should track all visible Galileo satellites, disregarding the three Galileo SIS status flags (SHS, DVS, SISA) encoded within the Galileo SIS L1 Navigation Message (because an invalid navigation message can still contain a valid RLM).
+
+To minimise power consumption, the embedded Galileo receiver does not continuously scan for its beacon ID in the Galileo SIS navigation message. Instead RLMs are transmitted with a Cospas-Sarsat agreed timing
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    24
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+schedule defined in the RLS GNSS receiver operations strategy. As such, this timing strategy allows the RLM transmissions for a given beacon to be synchronised with the activation of the beacon's Galileo receiver.
+
+This transmission strategy is based on a first activation window of the GNSS receiver of 30 minutes starting with the transmission of the first burst by the distress beacon, followed by an activation window of 15 minutes every UTC hour starting at a beacon specific epoch that depends on the beacon ID. Inside each activation window of a given distress beacon, the RLSP broadcasts the RLM several times according to a repetition algorithm.
+
+The RLSP repetition algorithm dynamically adapts the number of repetitions and interval between them as a result of different scenarios (accounting for possible Galileo system saturation, low RLM traffic, type of service (future evolutions of the RLS) or type of beacon) with the aim of maximising the RLM reception probability in the available slots.
+
+Each RLM repetition within a given activation window has a defined priority as a function of its RLM ID (beacon-dependent ID and repetition ID). The lower the repetition ID, the greater the priority, allowing new RLM requests to have priority over existing ones or repetitions (i.e. FIFO with priority).
+
+Additionally, the RLSP always retransmits the same RLM (including subsequent repetitions as per the repetition strategy) two times with one minute apart to the Galileo System for reliability reasons, however only one of each is uplinked.
+
+```mermaid
+gantt
+    title RLMR Timing Strategy - First GALILEO Rx activation window (30')
+    dateFormat s
+    axisFormat %S
+    
+    section First Window
+    5' (front end latency) :0, 300
+    FIRST Burst :milestone, 0, 0
+    RLM_Request :milestone, 300, 300
+    3' interval :300, 480
+    Tn1 :milestone, 480, 480
+    3' interval :480, 660
+    Tn2 :milestone, 660, 660
+    FB (5'22") :milestone, 660, 660
+    3' interval :660, 840
+    Tn3 :milestone, 840, 840
+    FB (8'22") :milestone, 840, 840
+    3' interval :840, 1020
+    Tn4 :milestone, 1020, 1020
+    FB (11'22") :milestone, 1020, 1020
+    3' interval :1020, 1200
+    Tn5 :milestone, 1200, 1200
+    3' interval :1200, 1380
+    Tn6 :milestone, 1380, 1380
+    < 7' :1380, 1800
+    T_wc :milestone, 1800, 1800
+```
+
+**Timing Parameters:**
+
+- **T_act** = Time of Beacon activation, i.e. Time of 1st transmitted burst;
+
+- **T_det** = Time of Beacon first detection; as the probability of SB detection is practically 100%, T_det = T_act;
+
+- **T_req** = Time of RLM_Request (from FMCC to RLSP);
+
+- **To** = T_Request + 2s;
+
+- **T_wc** = T_dec +30min (note that T_dec is reported in the RLM_Request SIT data);
+
+- **M_offset** is determined from the Beacon ID 15 HEX;
+
+- **T_off1** and **T_off2** are determined from M_offset;
+
+- **M** = Tm1 – T_off1 (margin)-
+
+```mermaid
+gantt
+    title First Alegre window (15')
+    dateFormat s
+    axisFormat %S
+    
+    section Alegre Window
+    M_offset :0, 0
+    M interval :0, 180
+    3' interval :180, 360
+    Tm1 :milestone, 180, 180
+    3' interval :360, 540
+    Tm2 :milestone, 360, 360
+    Tm3 :milestone, 540, 540
+    T_off1 :milestone, 0, 0
+    T_off1 :milestone, 900, 900
+    M_offset + 15' :milestone, 900, 900
+```
+
+**Additional Notes:**
+
+- M_offset is determined from 15-HEX beacon ID
+- T_off1, Toff2... are determined from M_offset
+- M = margin = Tm1 - T_off1
+
+**Figure 16 – RLMR Timing Strategy**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+• Note: If an RLS-capable beacon, once activated, is turned off and switched back on shortly after, there is no guarantee the Acknowledgement RLM will be received within the expected latency specified in section 5.2.2 of this document, due to a possible de-synchronisation between the beacon's Galileo receiver and the system's RLM Repetition timing.
+• To avoid RLS performance degradation, users are advised to follow the beacon manufacturer's operating manual. It is recommended that, once an RLS beacon has been activated it is left POWERED ON until the rescue operation has been completed or until advised otherwise by a relevant authority.
+
+## 4.4.4 SAR/Galileo Return Link Service Capacity
+
+The capacity of the current infrastructure supporting the SAR/Galileo Return Link Service is considered sufficient to avoid any saturation either in the Space Segment or in the Ground Segment.
+
+Within the Galileo System (including RLSP), the capacity is based on the following two factors:
+
+• Maximum number of RLMs accepted by the Galileo infrastructure:
+  - Limited by design to 30 RLMRs every minute
+• Maximum data rate allowed for the Return Link Service by Galileo satellites:
+  - fixed at 10 bits/s per satellite
+
+## 4.4.5 SAR/Galileo Return Link Service Coverage
+
+The provision on a global scale of the end-to-end RLS and the associated performance defined in section 5 depend also on the capability of the Cospas-Sarsat MEOSAR system to locate the alert distresses and relay the RLM Request (RLM_Request) to the RLSP for any beacon position on Earth. The deployed and commissioned ground segment MEOSAR infrastructure offers fast location of distress alerts (98% within 10 minutes) and therefore provides a low latency of the end-to-end RLS over the MEOSAR global coverage for multi-burst location better than 20km.
+
+Users should refer to Cospas-Sarsat published information in [RD3] to get the latest information on MEOSAR coverage.
+
+## 4.4.6 SAR/Galileo Return Link Service Robustness
+
+The end-to-end Return Link Service provision is a shared effort between Cospas-Sarsat (location and routing of the RLM request towards the Galileo interface), and the Galileo System including the RLSP (for the broadcast of the RLM) and therefore, its robustness and reliability is also shared and supported by the involved entities:
+
+• **Cospas-Sarsat Ground Segment:**
+
+The Cospas-Sarsat ground segment is a system achieved by the joint contribution of different participating administrations offering a variety of interoperable ground segment components (i.e. LUTs) that reinforce and provide redundancy to an already very robust ground segment.
+
+The FMCC and SPMCC are the two authorised Cospas-Sarsat Mission Control Centres connected to the Galileo interface with historical uptime availability values significantly above the requirements needed to achieve the SAR/Galileo RLS MPLs²¹.
+
+²¹ Refer to Cospas-Sarsat QMS
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    26
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+• **Galileo System:**
+
+The Galileo Service portfolio have been designed to be independent from one another. The following list provides further per element details on the Galileo RLS robustness:
+
+1. RLSP
+
+The current SAR/Galileo configuration includes a single RLSP infrastructure and site. Nonetheless high availability has been a design driver for the development of the RLSP resulting in a very reliable secure, modular, scalable, and virtualised infrastructure capable of sustaining single failures on the basis that a failure in one subsystem would not result in a failure of another subsystem. In this line, it should be highlighted that the RLSP architecture is not only robust to failures but also the data management preservation is built in.
+
+2. Galileo Data Dissemination Network
+
+The connectivity between the RLSP and Galileo is provided by the Galileo Data Dissemination Network (GDDN), a dedicated network, controlled and managed end-to-end by the Galileo Programme (no dependency on the Internet) and which gives continuous availability.
+
+3. Galileo Ground Mission Segment
+
+The Ground Mission Segment (GMS) is the subsystem within the Galileo Core Infrastructure tasked with receiving the RLMR from RLSP and injecting the associated RLM into the allocated SAR fields in the Galileo signal in space. The GMS infrastructure is deployed in two different sites to ensure a high availability for all the Galileo services.
+
+4. Galileo Space Segment
+
+The RLMs are uplinked to two separate Galileo spacecraft that are in-view of the target beacon. From the Galileo System perspective this ensures robustness to single satellite failure and that the RLM broadcast can be received by the beacon in distress with high availability.
+
+## 4.4.7 SAR/Galileo Return Link Service States
+
+The SAR/Galileo Return Link Service States are defined as Nominal, Degraded or Severely Degraded according to the conditions detailed in the Table 7 below.
+
+| RLS Service States    | Description                                                                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nominal**           | All cases not described as "Degraded" and "Severely Degraded" are considered as nominal status.                                                                                    |
+| **Degraded**          | RLSP is in degraded status or Not Operational during up to 7h cumulated over the calendar month,<br/><br/>OR RLM messages are delivered but not in compliance with the latency MPL |
+| **Severely Degraded** | RLSP is Not Operational for more than 7h cumulated over the calendar month,<br/><br/>OR RLM messages are not delivered for more than 7h cumulated over the calendar month.         |
+
+
+**Table 7 – SAR/Galileo RLS Operating States Definition**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    27
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# 5 SAR/GALILEO FULL OPERATIONAL CAPABILITY SERVICE MINIMUM PERFORMANCE LEVELS
+
+This section defines the SAR/Galileo Full Operational Capability Services in terms of Minimum Performance Levels (MPL) for the Galileo-only contribution and lists the conditions or constraints that are applicable.
+
+In addition to the Galileo MPLs, this section also provides two expected values linked to RLS:
+
+• end-to-end RLS availability
+• end-to-end message delivery loop latency
+
+The expected values are conditioned upon certain assumptions that are not under the control of the Galileo system (assumptions reliant on Cospas-Sarsat) and therefore are not considered as Galileo MPLs, but metrics presented for information purposes only.
+
+## 5.1 SAR/Galileo Forward Link Service MPL
+
+In the following sections, the SAR/Galileo Forward Link Service (FLS) MPL are defined for ECA and IOCA<sup>22</sup>.
+
+### 5.1.1 Forward Link Service Availability
+
+The SAR/Galileo Forward Link Service is the percentage of time during which the FLS is either in Nominal or Degraded stat (as defined in 4.2 and 4.3) and shall be computed over any 12 months period in the entire SAR/Galileo Coverage Area, i.e. in:
+
+• ECA as specified in Figure 3 and defined in Table 8
+• IOCA as specified in Figure 4 and defined in Table 9
+
+| SAR/Galileo Forward Link ServiceAvailability | MPL   | Conditions and Constraints                                                                                                                                    |
+| -------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ECA FLS Availability                         | > 99% | * Normalised over 12-month period.
+* From any point in the European SAR/Galileo Coverage area defined in Figure 3.
+* Including planned and unplanned outages. |
+
+
+**Table 8 – SAR/Galileo FLS Availability in ECA**
+
+<sup>22</sup> For the duration of the service provision, the SAR/Galileo FLS take advantage of the compatibility implemented on-board SAR instruments by other MEOSAR space segment providers defined in [RD6] to offer increased availability, coverage, and overall performance.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    28
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| SAR/Galileo Forward Link Service Availability | MPL   | Conditions and Constraints                                                                                                                                        |
+| --------------------------------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IOCA FLS Availability                         | > 95% | * Normalised over 12-month period.
+* From any point in the Indian Ocean SAR/Galileo Coverage Area defined in Figure 4.
+* Including planned and unplanned outages. |
+
+
+**Table 9 – SAR/Galileo FLS Availability in IOCA**
+
+## 5.1.2 FLS Detection Performance
+
+The detection performance represents the probability of detecting the transmissions of 406MHz beacons within the SAR/Galileo Coverage area and receiving a valid beacon message by the SAR/Galileo MEOLUT Facilities.
+
+The SAR/Galileo FLS detection performance MPL is presented in the following Table 10:
+
+| SAR/Galileo Service Detection Performance       | MPL   | Conditions and Constraints                                                                           |
+| ----------------------------------------------- | ----- | ---------------------------------------------------------------------------------------------------- |
+| Detection probability after 1 transmitted burst | > 99% | * From any point in ECA as per Figure 3 or IOCA as per Figure 4.
+* Calculated over a calendar month. |
+
+
+**Table 10 – SAR/Galileo Service Detection MPL**
+
+The MPL for detection probability after one transmitted burst for a given beacon over a period is computed as follows:
+
+- **N** is the number of transmission sequences (each sequence consists of 12 bursts) during the period that produced at least one valid message after the first transmitted burst.
+- **M** is the total number of transmission sequences for that beacon (two sequences per hour are sent by the REFBE, see section 3.3.3.1.5).
+- Valid message detection probability after 1 burst is given by the ratio **N/M**.
+
+## 5.1.3 FLS Location Performance
+
+The location performance is computed after 1 transmitted burst (single burst) and after 12 transmitted bursts (multi-burst) for the following MPLs:
+
+- The Location Probability: refers to the probability of having a location computed by:
+  - For ECA: the networking of the three SAR/Galileo MEOLUT Facilities of Maspalomas, Larnaca and Spitsbergen;
+  - For IOCA: The La Reunion SAR/Galileo MEOLUT Facility.
+- The Location Accuracy: measures the probability that the location error (difference between the real position and the one calculated by the MEOLUTs) is below a defined threshold (in kilometres) for the location calculated by:
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    29
+
+
+
+
+
+- For ECA: the networking of the three SAR/Galileo MEOLUT Facilities of Maspalomas, Larnaca and Spitsbergen;
+- For IOCA: The La Reunion SAR/Galileo MEOLUT Facility.
+
+| SAR/Galileo Forward Link Service Location Performance    | MPL   | Conditions and Constraints                                                                           |
+| -------------------------------------------------------- | ----- | ---------------------------------------------------------------------------------------------------- |
+| Location probability after 1 transmitted burst           | > 90% | * Calculated over a calendar month.
+* From any point in ECA as per Figure 3 or IOCA as per Figure 4. |
+| Location probability after 12 transmitted bursts         | > 98% |                                                                                                      |
+| Location accuracy after 1 transmitted burst within 5km   | > 90% |                                                                                                      |
+| Location accuracy after 12 transmitted bursts within 5km | > 95% |                                                                                                      |
+
+
+**Table 11 – SAR/Galileo FLS Location Performance MPLs**
+
+The above MPLs are computed as follows:
+
+- If there is one burst location between the first emission date and first emission date + 180s, then the sequence located after one burst is considered and the linked locations will belong to the "after 1 transmitted burst" class.
+- If there is up to 12 bursts location between the first emission date and First emission date + 11* burst_rate + 22.5s, then the sequence located after 12 bursts is considered and the linked locations will belong to the "after 12 transmitted bursts " class.
+- The location probability after K (K = 1 or 12) bursts for a beacon is equal to the ratio **N/M** with **N** number of transmitting sequences successfully located for this class K and **M** the total number of sequences for that beacon (2 sequences per hour, see section 3.3.3.1.5).
+
+The location accuracy probability within X kilometres is given by the ratio **Q/R** with **Q** the number of locations with accuracy better than or equal to Xkm and **R** the total number of computed locations in the class (i.e. either "after 1 transmitted burst" or "after 12 transmitted bursts" classes).
+
+## 5.1.4 SAR/Galileo MEOLUT Facility Availability
+
+The SAR/Galileo MEOLUT Facility availability corresponds to the percentage of time when a SAR/Galileo MEOLUT is in Nominal operational working mode. Their respective availability targets are presented in:
+
+- Table 12 for the three SAR/Galileo MEOLUT Facilities deployed in ECA,
+- Table 13 for the La Reunion SAR/Galileo MEOLUT Facility deployed in IOCA.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    30
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| SAR/Galileo MEOLUT Availability                          | MPL    | Conditions and Constraints                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SAR/Galileo MEOLUT Facility Availability in Nominal Mode | > 95 % | * For each one of the three SAR/Galileo MEOLUT Facilities of the ECA (Maspalomas, Larnaca and Spitsbergen), when all the receiver chains of the SAR/Galileo MEOLUT Facility are available and correctly working and all the other components involved in detection, location, TOA/FOA estimation, acquisition and dissemination are also working as specified.
+* Normalised over 12-month period.
+* Including planned and unplanned outages. |
+
+
+**Table 12 – SAR/Galileo MEOLUT Facilities Availability in ECA**
+
+| La Reunion SAR/Galileo MEOLUT Availability               | MPL    | Conditions and Constraints                                                                                                                                                                                                          |
+| -------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SAR/Galileo MEOLUT Facility Availability in Nominal Mode | > 95 % | * For La Reunion SAR/Galileo MEOLUT Facility, there is no failure preventing detection, location, TOA/FOA estimation, acquisition and dissemination.
+* Normalised over 12-month period.
+* Including planned and un-planned outages. |
+
+
+**Table 13 – La Reunion SAR/Galileo MEOLUT Facility Availability in IOCA**
+
+## 5.2 SAR/Galileo Return Link Service Performance
+
+### 5.2.1 Return Link Service Availability
+
+The SAR/Galileo Return Link Service is considered available when it is operating in Nominal state as defined Table 7.
+
+| SAR/Galileo Return Link Service Availability Performance | MPL   | Conditions and Constraints                                                                                              |
+| -------------------------------------------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------- |
+| SAR/Galileo Return Link Service Availability             | > 95% | * Accounting for the Galileo contribution only.
+* Normalised over 12-month period.
+* For any beacon location worldwide. |
+
+
+**Table 14 – SAR/Galileo Return Link Service Availability MPL**
+
+The SAR/Galileo RLS availability does not consider any unavailability associated to elements of the End-to-End loop that are outside the Galileo system (e.g. C/S MCC routing network, beacon malfunctioning, etc.) and
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    31
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+is expected to be greater than 95% for an any beacon location around the globe for the first RLM received by the beacon, independently of the Galileo satellite used for broadcast.
+
+The End-to-End RLS availability Expected Value, presented in the table below, is based on the Cospas-Sarsat specification for MEOSAR/LEOSAR ground segment availability, assumed at 95% over a year, and the Galileo RLS Availability MPL at 95% over a year. The Expected Value (which is not a Galileo MPL) is the result of the combination of both contributor's availabilities and is expected to be at least 90% for an any beacon location around the globe, independently of the system (MEO or LEO) used to determine the beacon location.
+
+| End-to-End Return Link Service Availability Performance | Expected Value | Conditions and Constraints                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| End-to-End Return Link Service Availability             | > 90%          | * The End-to-End RLS Availability is the aggregation of the Galileo RLS availability specified at 95% over a year (MPL in Table 14) and the Cospas-Sarsat MEOSAR System Performance Availability (MEOLUT and MCC availability) assumed to be 95% over a year.
+* Normalised annually. |
+
+
+**Table 15 – End-to-End Return Link Service Availability Expected Value**
+
+## 5.2.2 Galileo Return Link Service Latency
+
+The delivery latency MPL refers to the percentage of time that RLM transmission within the Galileo System Loop up to the SIS is bounded.
+
+| SAR/Galileo Return Link Service Performance           | MPL   | Conditions and Constraints                                                                                                                                                                                                                         |
+| ----------------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Galileo Return Link Service Latency within 15 minutes | > 99% | * From any point in the service coverage area
+* Calculated over a calendar month
+* Includes RLSP processing time up to Galileo satellite broadcast
+* Excludes RLM beacon decoding(Refer to section 4.4.2 for the boundaries of the monitored Loop) |
+
+
+**Table 16 – Galileo System Message Delivery Loop Latency MPL**
+
+The End-to-End Return Link Service Latency (defined in section 4.4.2) is not a Galileo MPL but an Expected Value as it includes the contribution of the Cospas-Sarsat. The End-to-End RLS latency is expected to be within 30 minutes 95% of the time, for an any beacon location around the globe, when MEOSAR is the Cospas-Sarsat system used to determine the beacon location, with a time allocation of 15min for Cospas-Sarsat and 15min for the Galileo Return Link Delivery Loop.
+
+<sup>23</sup> End-to-End Return Link Service Availability is not a Galileo MPL but an Expected Value as it requires the contribution of the MEOSAR System availability (assumed at 95%) and is presented for information purposes only.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                                   32
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| End-to-End Return Link Service Performance               | Expected Value24 | Conditions and Constraints                                                                                                                                                                                                                               |
+| -------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| End to End Return Link Service Latency within 30 minutes | >95%             | The expected End-to-End RLS latency within 30 minutes is the arithmetical sum of the Cospas-Sarsat and Galileo performance contributions with 15 minutes allocated to the Cospas-Sarsat Front End Loop and 15 minutes for the Galileo RLM Delivery Loop. |
+
+
+**Table 17 – End-to-End Return Link Service Delivery Loop Latency Expected Value**
+
+## 5.3 SAR/Galileo Space Segment Availability for the Forward Link Service
+
+This section provides the MPL associated with the availability of the Galileo SAR payloads involved in the SAR/Galileo FLS as defined in A.3. The SAR instruments on board Galileo satellites are considered unavailable when any indication from the satellite (e.g. telemetry) is such that the SAR payload cannot be considered for the SAR Service Provision.
+
+| Galileo SAR Repeater Availability | MPL   | Conditions and Constraints                                                                                         |
+| --------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
+| SAR Repeater Availability         | > 95% | * Per satellite in Service as per A.3
+* Calculated over a calendar month
+* Including planned and unplanned outages |
+
+
+**Table 18 – Galileo SAR Repeater Availability MPL**
+
+<sup>24</sup> The End-to-End RLM Delivery Loop Latency within 30min is not a Galileo MPL but an Expected Value as it requires the contribution from the MEOSAR System for the Location and confirmation of the alert (assumed to be within 15min) and the Galileo System Delivery Loop as per MPL in Table 16 (assumed to be under 15min).
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                    33
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# 6 LIST OF REFERENCES
+
+## Reference Documents:
+
+| Type | Title                                                            | Reference  |
+| ---- | ---------------------------------------------------------------- | ---------- |
+| RD1  | C/S MCC Standard Interface Description (SID)                     | C/S A.002  |
+| RD2  | C/S Data Distribution Plan (DPP)                                 | C/S A.001  |
+| RD3  | C/S 406MHz MEOSAR Implementation Plan                            | C/S R.012  |
+| RD4  | Specification for C/S 406MHz Distress Beacons                    | C/S T.001  |
+| RD5  | Description of the 406MHz Payloads Used in the C/S MEOSAR System | C/S T.016  |
+| RD6  | C/S MEOSAR Space Segment Commissioning Standard                  | C/S T.017  |
+| RD7  | C/S MEOLUT Performance Specification and Design Guidelines       | C/S T.019  |
+| RD8  | C/S MEOLUT Commissioning Standard                                | C/S T.020  |
+| RD9  | Galileo Open Service Definition Document                         | OS SDD     |
+| RD10 | Galileo Open Service Signal-in-Space ICD                         | OS SIS ICD |
+| RD11 | NMEA 0183/IEC 61162-1 Sentence for Return Link Service           | NMEA0183   |
+| RD12 | Specification for Second Generation C/S 406MHz Distress Beacons  | C/S T.018  |
+
+
+**Table 19 – Reference Documents**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    34
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# Annex A SAR/Galileo Full Operational Capability Service Operations
+
+## A.1. SAR/Galileo Data Service Provider (Annex)
+
+The SAR/Galileo Data Service Provider (SGDSP) is the entity in charge of the coordination of the operations related to the SAR/Galileo Services.
+
+SGDSP operations are executed from the SAR/Galileo Service Centre and the following are SGDSP's main responsibilities:
+
+1. Management and coordination of SAR/Galileo Ground Segment operations,
+2. Monitoring of the SAR/Galileo Service performance through Key Performance Indicators,
+3. Management and coordination of the SAR/Galileo Ground Segment maintenance and execution of level 2 maintenance.
+
+In order to allow for the SAR/Galileo Service provision, the SGDSP interfaces with various entities by means of operational interfaces, in particular with:
+
+- The European Union Agency for Space Programme (EUSPA) for Service and management purposes,
+- The Galileo Operator for operational aspects related to the Return Link and the Space Segment,
+- The SAR/Galileo Sites for operational aspects related to the Forward Link and Return Link,
+- The Cospas-Sarsat Community for the notification of planned or unplanned SAR/Galileo Service outages (Space Segment, Forward Link or Return Link) through via SIT605 (refer to Annex C).
+
+## A.2. Communication to SAR/Galileo Users (Annex)
+
+The SAR/Galileo Service provision includes the timely broadcast of the latest information of relevance to the user community with tailored content, flow of information and timescale associated. The following mechanisms are in place to ensure an effective communication:
+
+1. Operational Notifications:
+
+The SAR/Galileo operational notifications, also referred as Notice Advisory to SAR/Galileo Users (NASU), may include up-to-date ground and space status information, planned and unplanned outages, relevant maintenance activities, tests and/or any relevant information regarding the commissioning/decommissioning of SAR/Galileo System elements and/or capabilities.
+
+Such notifications are promptly distributed to the Cospas-Sarsat community (i.e. Mission Control Centres) by means of a Subject Indicator Type number 605 messages (SIT605) through the operational MCC network. The distribution is initiated by Galileo and pushed from the French and/or Spanish Mission Control Centre, an example of SIT605 is given in Annex C.
+
+In addition, SAR Server Users (see Annex B) are also provided with operational notifications regarding planned and unplanned outages as well as password expiration and renewal communications by means of emails distributed by the European GNSS Centre Operator, an example is given in Annex B.4.
+
+2. Static Service Notifications
+
+On top of the operational notifications, the European GNSS Service Centre (GSC) website (www.gsc-europa.eu) provides diverse SAR/Galileo up-to-date information as follows:
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                35
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| European GNSS Service Centre Web Resourceswww\.gsc-europa.eu | European GNSS Service Centre Web Resourceswww\.gsc-europa.eu                                                                                                                                                                              |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SAR Galileo Satellites<br/>Information                       | Under System & Service Status select "SAR/Galileo Satellites Information" for the list of active Galileo satellites contributing to the SAR/Galileo Services as well as Galileo SAR Repeater SARR instrument main characteristics.        |
+| SAR Galileo Reference and<br/>Calibration Beacons            | Under System & Service Status select "SAR/Galileo Reference and Calibration Beacons" for the operational status of the Beacons used for continuous Service monitoring.                                                                    |
+| SAR/Galileo Server                                           | Under System & Service Status select "SAR/Galileo Server" for the operational status of the complementary Galileo infrastructure proving Galileo constellation orbital products.                                                          |
+| SAR/Galileo Operational<br/>Notifications                    | Under System & Service Status select "SAR/Galileo Operational Notifications" to access the list of Notice Advisory to SAR/Galileo Users distributed to the Cospas-Sarsat community.                                                       |
+| Galileo Incidents Report Form                                | Use the HelpDesk and select "Report a Galileo Incident"                                                                                                                                                                                   |
+| Interactive support to users                                 | Use the HelpDesk and select "Raise your questions"                                                                                                                                                                                        |
+| SAR Service Performance<br/>Reports                          | Under Electronic Library select "Performance Reports".<br/>The "SAR Service Performance Report" are published on a quarterly basis.                                                                                                       |
+| Galileo Service Notices                                      | Under System & Service Status select "Service Notices" to access the in force, superseded and expired Service Notice to Galileo Users (SNGU) providing complementary information or temporal amendments to the contents of this document. |
+
+
+**Table 20 – European GNSS Service Centre website resources**
+
+## A.3. SAR/Galileo Space Segment (Annex)
+
+The list of the active Galileo satellites contributing to the SAR/Galileo Forward Link Service (FLS) and the SAR/Galileo Return Link Service (RLS) is available on the GSC website:
+
+- SAR/Galileo satellites information : https://www.gsc-europa.eu/system-service-status/sar-information
+- Orbital and technical parameters: https://www.gsc-europa.eu/system-service-status/orbital-and-technical-parameters
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    36
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# Annex B SAR/Galileo Server User Manual and Orbital Products
+
+## B.1. User Interface (Annex)
+
+### B.1.1. User Access Request Procedure (Annex)
+
+Access to the SAR Server is restricted to approved users only. In order to get the credentials, the SAR Server users must first register and then access the GSC web portal to request, via the Helpdesk service, a user login and password for accessing the server. An email is sent to the requestor to confirm that the request is being processed.
+
+Note that all user accounts must be related to a physical person (as requested in the form below) who is responsible for the proper use of the account. During the registration process, the user must provide a signed version of a Non-Disclosure Undertaking (NDU) on the server connection details (SAR server IP address, user and password) and the proper use of the server account (data reading purposes only). A document providing the empowerment of the signatory of the NDU to sign it on behalf of the registered User must be attached to the signed NDU.
+
+Users must follow these steps to request a user account in the SAR Server:
+
+0. If the User does not already have a GSC web portal account, this must first be requested at the following address: https://www.gsc-europa.eu/user/register
+
+1. Login to the GSC web portal and access the Galileo Helpdesk: http://gsc-europa.eu/helpdesk
+
+2. Fill in the helpdesk form, as shown in Figure 17 and Table 21.
+
+3. The User receives an email acknowledging the access request submission. In order to proceed with the request, the user is requested to sign an NDU form.
+
+   Note that, if the User is represented by somebody else, the signatory must also enclose a document providing his/her empowerment to sign on behalf of the User.
+
+   The signed copy of the NDU must be sent by the user to the email address helpdesk@gsc-europa.eu (subject: NDU for SAR server access) to proceed with the registration process.
+
+4. If the user request is approved, the SAR server login credentials is provided by email. And finally, the server IP address and user password are provided by telephone on the number provided during the registration process.
+
+Note that all user passwords expire after 6 months, and renewed passwords are provided by the GSC to the user before the expiration date. Users are contacted before the password expiration to receive a new password.
+
+The Helpdesk form to be filled in is displayed in Figure 17 below:
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                37
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+![GSC Help Center interface showing a form with the following fields:
+- Header: "GSC Help Center" with "Requests" button
+- Breadcrumb: "GSC Help Center / GSC Help Desk"
+- Title: "Raise your questions"
+- Subject field containing: "[SAR] Request for GSC sFTP Server Account"
+- Dropdown: "Galileo service to which your message or question is related" set to "Search & Rescue (SAR)"
+- Dropdown: "User Domain (optional)" set to "None"
+- Text area: "Write your message or question" with placeholder text showing:
+  - Name and Surname:
+  - Email:
+  - Organization:
+  - Contact telephone:
+  - User IP address that will be connecting to the SAR Server:
+- Attachment section (optional) with drag and drop area and "browse" link
+- "Create" and "Cancel" buttons at bottom]
+
+**Figure 17 – SAR Server - User Access Request**
+
+Note that it is mandatory to fill in the following fields as follows:
+
+| SAR User Request Form Explanation                                 |                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Subject**                                                       | Please enter: "\[SAR] Request for GSC sFTP server account"                                                                                                                                                                      |
+| **Galileo service to which your message or question is related:** | Select: "Search & Rescue (SAR)"                                                                                                                                                                                                 |
+| **User Domain:**                                                  | (optional)                                                                                                                                                                                                                      |
+| **Write your message or question**                                | The following fields must be provided in the field **"Write your message or question"**:- Name and surname,
+- Email,
+- Organisation.
+- Contact telephone.
+- User IP address to be used for the connection to the SAR server 25. |
+| **Attachment**                                                    | (optional)                                                                                                                                                                                                                      |
+
+
+**Table 21 – SAR Server User Registration Form Content**
+
+<sup>25</sup> For security reasons, the SAR server does not accept connections from non-authorised IP addresses
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    38
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+## B.1.2. Service Notification (Annex)
+
+In case of planned or unplanned outage of the SAR server, service notifications are sent to the SAR Server users.
+
+For planned events, the notification is sent at least 1 day before the start time of the outage. For unplanned events, the notification is sent not more than 4 working days after the detection of the event.
+
+This service is implemented by means of an email communication to the address provided during the registration process.
+
+The interface is an email with the following format:
+
+• Subject: [SAR][GSC][SERVICE NOTIFICATION] "Free text with details on the service notification"
+• From: helpdesk@gsc-europa.eu
+• To: SAR Server Users email addresses
+• CC: galileo_operations@euspa.europa.eu
+• Content: information on the service notification: description, impact, start and end times.
+
+It is not expected that SAR Users provide any response to the Service Notification.
+
+## B.2. Orbital Products (Annex)
+
+Via this interface, SAR users can retrieve the following information and data by means of the sFTP protocol:
+
+• Galileo orbital products.
+• MD5 hash files associated with each orbital product.
+• Validity log file and welcome message.
+• Additional SAR Server information.
+
+In particular, the different Galileo orbital products with their respective file naming convention, format and nominal refresh rate are provided in Table 22.
+
+| Product                            | File Naming Convention                        | File Content                                         | Format                        | Nominal Refresh Rate |
+| ---------------------------------- | --------------------------------------------- | ---------------------------------------------------- | ----------------------------- | -------------------- |
+| RINEX Navigation Message (NAVRE)   | NAVRE\_YYYYMMDDhhmm ss\_TGVFIYYDDDh\_S.yyl.gz | Ephemeris data for Galileo satellites.26             | Rinex 3.0                     | Hourly               |
+| Predicted Satellite Orbits (PRDOB) | PRDOB\_YYYYMMDDhhmm ss\_TGVFIYYDDDh\_S.sp3.gz | Galileo predicted orbit for Galileo satellites.      | Sp3                           | Hourly               |
+| Predicted Satellite Clock (PSATC)  | PSATC\_YYYYMMDDhhmm ss\_TGVFIYYDDDh\_S.clk.gz | Galileo predicted clock file for Galileo satellites. | Rinex 3.0 (clock extensio ns) | Hourly               |
+
+
+26 Note that INF_AlmanacData does not correspond to the navigation messages broadcast in the Galileo SIS.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    39
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| Product                               | File Naming Convention                                              | File Content                                                                                                                                                                                               | Format | Nominal Refresh Rate |
+| ------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------------------- |
+| Almanac<br/>(INF\_AlmanacData)        | INF\_AlmanacData\_YYYYM<br/>MDDhhmmss\_TGVFIYYDD<br/>Dh\_S.xml.gz   | Almanac data for<br/>Galileo satellites29                                                                                                                                                                  | XML    | Hourly               |
+| Ephemeris Data<br/>(NAV\_EphemToRlsp) | NAV\_EphemToRlsp\_YYYY<br/>MMDDhhmmss\_TGVFIYYD<br/>DDh\_SNN.xml.gz | Includes the following<br/>data for the Galileo<br/>constellation:<br/><br/>-Ephemeris data<br/><br/>-GST-UTC conversion<br/>parameters<br/><br/>-Week Number and<br/>IOD of the ephemeris<br/>data (IODE) | XML    | Hourly               |
+
+
+**Table 22 – SAR Server Orbital Products**
+
+The file naming convention is as follows:
+
+• "YYYYMMDDhhmmss" refers to the start of the product validity time (it corresponds to the start of the prediction arc for the data contained in the file):
+
+  - YYYY: 4-digit year
+  - MM: 2-digit month
+  - DD: 2-digit day
+  - hh: 2-digit hour
+  - mm: 2-digit minute
+  - ss: 2-digit second
+
+• "yyl" stands for the data product year plus "l" character. E.g. for 2024: "24l".
+
+• "TGVFIYYDDDh":
+
+  - I values can be either 1 or 2. Not relevant for the content of the file.
+  
+  - YYDDDh: it corresponds to the start date of data set used for product generation.
+  
+    o YY: 2-digit year (24 for 2024),
+    
+    o DDD: Day Of the calendar Year (DOY).
+    
+    o h: An hour code (A=00:00, B=01:00, C=02:00 ...).
+
+• "S" stands for Service identifier (F for F/NAV, I for I/NAV).
+
+• "NN" stands for the data set identifier.
+
+For the ephemeris data file:
+
+• Satellite ID is provided with its CCSDS (satellite community standard) ID in decimal format.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                40
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+• Time of ephemeris (TOE) is provided with a year-month-dayThour:minute:second TOE-format in Galileo time: the leap seconds between Galileo time and UTC must then be taken into account as for a usual navigation message format.
+• Within the ephemeris data
+  ○ values i0, omega0, omega, m0, dn, omegaDot and iDot are given in semi-circles, and must then be multiplied by π to get radians.
+  ○ values of cus, cuc, cis and cic are given in radians.
+
+Each orbital product listed in Table 22 and available in the SAR server is delivered with a unique hash file computed following RFC 1321 norm and named as its associated product but with "md5" extension. The md5 file is intended for the SAR Server user to verify that the product was not corrupted during the user´s retrieval process.
+
+## B.2.1. SAR Server Folders Structure (Annex)
+
+The SAR Server products are structured in a folders' tree containing all the products and additional information related to these products. There are two different types of folders:
+
+1. **"last" folder**: This folder contains the last available version of each product type according to the start of the product validity time.
+2. **YYYY/DOY folders**: The YYYY/DOY folders are archives for the GSC products according to the SAR SERVER storage rules. They contain sub-folders per Day of Year (YYYY/DOY).
+
+## B.2.2. Satellite Naming Convention Table (Annex)
+
+The following table contains the identification numbers of the different Galileo satellites that should be used by the SAR Server Users to correctly process the products.
+
+| SatelliteCode | CCSDS ID<br/>HEX | CCSDS ID<br/>DEC | SISICDSV ID | Cospas-SarsatID | IGS ID | NORADID | Orbital Slot |
+| ------------- | ---------------- | ---------------- | ----------- | --------------- | ------ | ------- | ------------ |
+| GSAT-0101     | 3A5              | 933              | 11          | 411             | E11    | 37846   | B05          |
+| GSAT-0102     | 3A6              | 934              | 12          | 412             | E12    | 37847   | B06          |
+| GSAT-0103     | 3A7              | 935              | 19          | 419             | E19    | 38857   | C04          |
+| GSAT-0201     | 261              | 609              | 18          | 418             | E18    | 40128   | N/A (Ext01)  |
+| GSAT-0202     | 262              | 610              | 14          | 414             | E14    | 40129   | N/A (Ext02)  |
+| GSAT-0203     | 263              | 611              | 26          | 426             | E26    | 40544   | B08          |
+| GSAT-0205     | 265              | 613              | 24          | 424             | E24    | 40889   | A08          |
+| GSAT-0206     | 266              | 614              | 30          | 430             | E30    | 40890   | A05          |
+| GSAT-0207     | 267              | 615              | 07          | 407             | E07    | 41859   | C06          |
+| GSAT-0208     | 268              | 616              | 08          | 408             | E08    | 41175   | C07          |
+
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    41
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| SatelliteCode | CCSDS ID<br/>HEX | CCSDS ID<br/>DEC | SISICDSV ID | Cospas-SarsatID | IGS ID | NORADID | Orbital Slot |
+| ------------- | ---------------- | ---------------- | ----------- | --------------- | ------ | ------- | ------------ |
+| GSAT-0209     | 269              | 617              | 09          | 409             | E09    | 41174   | C02          |
+| GSAT-0211     | 26B              | 619              | 02          | 402             | E02    | 41549   | A06          |
+| GSAT-0212     | 26C              | 620              | 03          | 403             | E03    | 41860   | C08          |
+| GSAT-0213     | 26D              | 621              | 04          | 404             | E04    | 41861   | C03          |
+| GSAT-0214     | 26E              | 622              | 05          | 405             | E05    | 41862   | C01          |
+| GSAT-0215     | 2C5              | 709              | 21          | 421             | E21    | 43055   | A03          |
+| GSAT-0216     | 2C6              | 710              | 25          | 425             | E25    | 43056   | A07          |
+| GSAT-0217     | 2C7              | 711              | 27          | 427             | E27    | 43057   | A04          |
+| GSAT-0218     | 2C8              | 712              | 31          | 431             | E31    | 43058   | A01          |
+| GSAT-0219     | 2C9              | 713              | 36          | 436             | E36    | 43566   | B04          |
+| GSAT-0220     | 2C0              | 704              | 13          | 413             | E13    | 43567   | B01          |
+| GSAT-0221     | 2C1              | 705              | 15          | 415             | E15    | 43564   | B02          |
+| GSAT-0222     | 2C2              | 706              | 33          | 433             | E33    | 43565   | B07          |
+| GSAT-0223     | 109              | 265              | 34          | 434             | E34    | 49809   | B03          |
+| GSAT-0224     | 10B              | 267              | 10          | 410             | E10    | 49810   | B15          |
+| GSAT-0225     | 10C              | 268              | 29          | 429             | E29    | 59598   | C5           |
+| GSAT-0227     | 10E              | 270              | 06          | 406             | E06    | 59600   | C12          |
+| GSAT-0226     | 10D              | 269              | 23          | 423             | E23    | 61183   | A2           |
+| GSAT-0232     | 137              | 311              | 16          | 416             | E16    | 61182   | A17          |
+| GSAT-0233     | 138              | 312              | \*          | \*              | \*     | \*      | \*           |
+| GSAT-0234     | 139              | 313              | \*          | \*              | \*     | \*      | \*           |
+| GSAT-0230     | 113              | 275              | \*          | \*              | \*     | \*      | \*           |
+| GSAT-0231     | 136              | 310              | \*          | \*              | \*     | \*      | \*           |
+| GSAT-0228     | 10F              | 271              | \*          | \*              | \*     | \*      | \*           |
+| GSAT-0229     | 112              | 274              | \*          | \*              | \*     | \*      | \*           |
+
+
+**Table 23 – Galileo Satellite Identification Table**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                42
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+The above are default values that can be overridden at any time, according to the Galileo constellation management plan.
+
+*: Values to be confirmed in due time
+
+## B.3. Investigation Request (Annex)
+
+SAR Server users can submit an investigation request (IR) about the SAR orbital products service provision (e.g. missing products, wrong product content, connection problems with the server...). For this, the user must go to the GSC web portal and send their IR using the Helpdesk form following the guidelines detailed below. This interface should not be addressed for other requests than those related to the SAR Server orbital product service provision.
+
+To submit an investigation request, a SAR Server user must fill in the www.gsc-europa.eu/helpdesk as follows:
+
+• **Subject:** [GSC][IR] "title"; Please note that "title" field should reflect the scope of the Investigation Request, as provided by the user.
+• Galileo service to which your message or question is related: Search & Rescue (SAR)
+• Fill in the "Write your message or question" field following the structure below:
+
+| Field name                                 | Description                           |
+| ------------------------------------------ | ------------------------------------- |
+| **Requester Name**                         | Name of the requester                 |
+| **Requester Contacts**                     | Email of the requester                |
+| **Requester Organisation**                 | Name of the IR requester organisation |
+| **Title**                                  | Title of the IR                       |
+| **Submittal date**                         | Date of IR submission                 |
+| **Urgency**                                | ("Urgent" or "Not Urgent")            |
+| **Affected Products**                      | (If applicable)                       |
+| **Observed Start/End<br/>Dates and Times** | Event start and finish dates          |
+| **Description**                            | Detailed description                  |
+
+
+**Table 24 – Fields for SAR Server Investigation Request**
+
+## B.4. Sample of Operational Notification (Annex)
+
+The text below constitutes a sample of operational notification that SAR/Galileo Server Users may receive in relation to the provision of Galileo products.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    43
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+**From**: GSC Operations
+
+**To**: < SAR/Galileo Server User>
+
+**Subject**: [SAR][GSC][SERVICE NOTIFICATION] Planned Maintenance Activity
+
+Dear GSC SAR server users,
+
+This email is to inform about the recovery of the maintenance activity:
+
+________________________________________
+
+The maintenance activity has ended. The provision of products is fully nominal again.
+
+________________________________________
+
+Should you need further information, please, reply directly to this email.
+
+Thank you.
+
+GSC Operations
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    44
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# Annex C Sample of Notice Advisory to SAR/Galileo Users
+
+Here below is a sample of a Notice Advisory to SAR/Galileo Users (NASU) containing a narrative message SIT 605 <sup>27</sup> that should be used for any Galileo communications to the Cospas-Sarsat community.
+
+The NASU can be found in the GSC website inside the SAR Information section.
+
+/12357 00000/2270/22 270 1332
+/605/0090
+/FM FMCC COSPAS-SARSAT TOULOUSE
+TO ALL MCC'S
+
+**SUBJECT**: COSPAS-SARSAT MEOSAR-EQUIPPED SATELLITE FOC DECLARATION
+
+**A. OBJECTIVE**: SATELLITE GSAT0223 FOC DECLARATION
+
+**B. COMMISSIONING AUTHORITY**: EUSPA
+
+**C. SATELLITE DETAILS**:
+
+- COSPAS-SARSAT ID: 434
+- SATELLITE NAME: GSAT0223
+- SATELLITE ORBIT: MEO
+- LAUNCH DATE (DAY-MONTH-YEAR): 04-12-2021
+- CCSDS ID: 109
+
+**D. STATUS**: PAYLOAD COMMISSIONED AT FOC STATUS
+
+**E. SINCE (DAY-MONTH-YEAR)**: 26-09-2022
+
+**F. SAR PAYLOAD STATUS AT COMMISSIONING**:
+
+- SART STATUS: ON
+- SART MODE: ALC
+- SART BW: 90 KHZ
+- OPERATIONAL LIMITATIONS (IF ANY OR NONE): NONE
+
+**G. ADDITIONAL INFORMATION**:
+
+- SIS AVAILABLE: YES
+- SAR SERVER DATA: YES
+- IOT+ COMPLETED: YES
+- IOT REPORT AVAIBLE: YES
+- IOT REPORT REFERENCE: EWG-5C-2022-0202
+- THIS SATELLITE SUPPORTS THE SAR-GALILEO RETURN LINK SERVICE
+- AVAILABLE AT WWW.COSPAS-SARSAT.INT
+- AVAILABLE AT WWW.GSC-EUROPA.EU
+
+**H. REMARKS**: NONE
+
+THANKS FOR YOUR COOPERATION.
+FMCC OPERATIONS.
+QQQQ
+/LASSIT
+/ENDMSG
+
+<sup>27</sup> Compliant following specifications defined in [RD1]
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                45
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+## Annex D External MEOLUT Connection and Data Exchange
+
+The SAR/Galileo Ground Segment offers the possibility to connect an external MEOLUT to the SAR/Galileo system to gain access to its TOA/FOA data. To enable connectivity of external MEOLUT, ad hoc agreements and conditions must be established, and a set of pre-requisites fulfilled. In particular, the external MEOLUT must comply with Cospas-Sarsat specifications in terms of file data format (RD1) and potential networking architectures [RD7]. The external MEOLUT must also have a dedicated network access through a secure VPN link to connect to the designated SGS interface (MTCF or SAR/Galileo MEOLUT Facility).
+
+Additionally, depending on the type of external MEOLUT and its architecture, the SAR/Galileo Ground Segment can also offer the exchange and coordination of tracking plans via dedicated protocols.
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    46
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# Annex E Further Information on the SAR/Galileo Services
+
+## E.1. SAR/Galileo Points of Contact (Annex)
+
+Users wishing to get in contact are invited to send their inquiries to the following entities:
+
+• For general and programmatic questions on the SAR/Galileo Services, users can directly address them through the European GNSS Service Centre Help Desk at: www.gsc-europa.eu/helpdesk.
+• For technical questions related to SAR/Galileo performance or interfaces, users can directly address the SAR/Galileo Data Service Provider at the following email address: L-sgdsp-info@cnes.fr.
+
+## E.2. SAR/Galileo Return Link Identify (Annex)
+
+The SAR/Galileo Return Link marking and visual identity is a recognisable and coherent image univocally identifying the SAR/Galileo Return Link functionality.
+
+Beacon manufacturers are highly recommended to identify their Cospas-Sarsat Type-Approved RLS-enabled beacons by using the following RLS marking²⁸
+
+**Figure 18 – SAR Galileo Return Link Visual Identity**
+
+²⁸ High-resolution graphics can be provided upon request, follow instructions provided in section F.1
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    47
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+# Annex F Abbreviations and Acronyms
+
+| Abbreviation  | Definition                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| ALC           | Automatic Level Control                                                                     |
+| C/S           | Cospas-Sarsat                                                                               |
+| CALBE/CB      | Calibration Beacon                                                                          |
+| CNES          | Centre National d'Études Spatiales (French National Space Agency)                           |
+| COSPAS-SARSAT | Cosmicheskaya Sistyema Poiska Avariynikh Sudov - Search And Rescue Satellite-Aided Tracking |
+| CYMCC         | Cypriot Cospas-Sarsat Mission Control Centre                                                |
+| CYNET         | Cyprus Research and Academic Network                                                        |
+| CYTA          | Cyprus Telecommunication Authority                                                          |
+| DASS          | Distress Alerting Satellite System (based on GPS satellites)                                |
+| DOY           | Day Of the Year                                                                             |
+| EC            | European Commission                                                                         |
+| ECA           | European Coverage Area                                                                      |
+| EGNSS         | European GNSS                                                                               |
+| EDDN          | External Data Distribution Network                                                          |
+| EIRP          | Equivalent isotropic radiated power                                                         |
+| ELT           | Emergency Locator Transmitter                                                               |
+| ELT(DT)       | ELT Distress Tracking                                                                       |
+| EPIRB         | Emergency Position-Indicating Radio Beacon                                                  |
+| EU            | European Union                                                                              |
+| EUSPA         | European Union Agency for Space Programme                                                   |
+| FGM           | Fix Gain Mode                                                                               |
+
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    48
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| Abbreviation | Definition                                        |
+| ------------ | ------------------------------------------------- |
+| FIFO         | First in First Out                                |
+| FL           | Forward Link                                      |
+| FLS          | FL Service                                        |
+| FLAM         | Forward Link Alert Message                        |
+| FMCC         | French MCC                                        |
+| FOA          | Frequency Of Arrival                              |
+| FOC          | Full Operational Capability                       |
+| FTP          | File Transfer Protocol                            |
+| GCC          | Galileo Control Centre                            |
+| GCC-D        | GCC Deutschland                                   |
+| GCC-I        | GCC Italia                                        |
+| GCS          | Galileo Control Segment                           |
+| GDDN         | Galileo Data Distribution Network                 |
+| GEANT        | Gigabit European Advanced Network Technology      |
+| GEO          | Geostationary Earth Orbit                         |
+| GEOLUT       | GEO Local User Terminal                           |
+| GEOSAR       | GEO Search and Rescue (Satellite System)          |
+| GLONASS      | Globalnaya Navigazionnaya Sputnikovaya Sistema    |
+| GMS          | Galileo Mission Segment                           |
+| GNSS         | Global Navigation Satellite System                |
+| GPS          | Navstar Global Positioning System (United States) |
+| GSA          | European GNSS Agency                              |
+| GSC          | European GNSS Service Centre                      |
+| GSS          | Galileo Sensor Stations                           |
+
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    49
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| Abbreviation | Definition                                                      |
+| ------------ | --------------------------------------------------------------- |
+| GST          | Galileo System Time                                             |
+| ICD          | Interface Control Document                                      |
+| IEC          | International Electrotechnical Commission                       |
+| I/NAV        | Galileo E1 channel I navigation signal                          |
+| ILS          | Integrated Logistics Support                                    |
+| INTA         | Instituto Nacional de Técnica Aerospacial                       |
+| IOC          | Initial Operational Capability                                  |
+| IOCA         | Indian Ocean Coverage Area                                      |
+| IODE         | Issue of Data Ephemeris                                         |
+| IOV          | In Orbit Validation                                             |
+| KCP          | Key performance indicators Collection Platform (hosted by MTCF) |
+| KPI          | Key Performance Indicator                                       |
+| KSAT         | Kongsberg Satellite Services                                    |
+| LEO          | Low Earth Orbit                                                 |
+| LEOLUT       | Low Earth Orbit Local User Terminal                             |
+| LEOSAR       | LEO Search And Rescue (satellite system)                        |
+| LUT          | Local User Terminal                                             |
+| M\&C         | Mission & Control                                               |
+| MCC          | Mission Control Centre                                          |
+| MEO          | Medium Earth Orbit                                              |
+| MEOLUT       | Medium Earth Orbit Local User Terminal                          |
+| MEOSAR       | MEO Search And Rescue                                           |
+| MPL          | Minimum Performance Level                                       |
+| MTCF         | MEOLUT Tracking Coordination Facility                           |
+
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii    50
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| Abbreviation | Definition                                                                                                   |
+| ------------ | ------------------------------------------------------------------------------------------------------------ |
+| N/A          | Not Applicable                                                                                               |
+| NAGU         | Notice Advisory to Galileo Users                                                                             |
+| NAVRE        | RINEX Navigation message                                                                                     |
+| NMCC         | Norwegian Cospas-Sarsat Mission Control Centre                                                               |
+| NMEA         | National Marine Electronics Association                                                                      |
+| NORDUnet     | Nordic Gateway for Research and Education                                                                    |
+| NREN         | National Research and Education Network                                                                      |
+| PLB          | Personal Locator Beacon                                                                                      |
+| PRDOB        | Predicted Satellite Orbits                                                                                   |
+| PSATC        | Predicted Satellite Clock                                                                                    |
+| RCC          | Rescue Coordination Centre                                                                                   |
+| RedIRIS      | Red española para Interconexión de los Recursos InformáticoS de las universidades y centros de investigación |
+| REFBE/RB     | Reference Beacon                                                                                             |
+| RENATER      | Réseau national de télécommunications pour la technologie, l'enseignement et la recherche                    |
+| RF           | Radio Frequency                                                                                              |
+| RFC          | Request For Comment                                                                                          |
+| RINEX        | Receiver Independent Exchange Format                                                                         |
+| RL           | Return Link                                                                                                  |
+| RLM          | Return Link Message                                                                                          |
+| RLMR         | RLM Request from RLSP                                                                                        |
+| RLM\_Request | RLM Request from C/S                                                                                         |
+| RLS          | Return Link Service                                                                                          |
+| RLSP         | Return Link Service Provider                                                                                 |
+
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                51
+
+
+
+
+
+
+GALILEO SEARCH AND RESCUE SERVICE DEFINITION DOCUMENT, ISSUE 3.0, OCTOBER 2024
+
+| Abbreviation | Definition                                   |
+| ------------ | -------------------------------------------- |
+| SAR          | Search And Rescue                            |
+| SARN         | SAR/Galileo Network (for data distribution)  |
+| SARR         | SAR Repeater                                 |
+| SDD          | Service Definition Document                  |
+| sFTP         | Secure File Transfer Protocol                |
+| SGC          | European SAR/Galileo Coverage Area           |
+| SGDSP        | SAR/Galileo Data Service Provider            |
+| SGS          | SAR/Galileo Ground Segment                   |
+| SGSC         | SAR/Galileo Service Centre                   |
+| SIS          | (Galileo) Signal In Space                    |
+| SIT          | Subject Indicator Type                       |
+| SPMCC        | Spanish Cospas-Sarsat Mission Control Centre |
+| SSAS         | Ship Security Alert System                   |
+| TTC/TT\&C    | Telemetry, Tracking & Control                |
+| TOA          | Time Of Arrival                              |
+| ULS          | (Galileo) Uplink Station                     |
+| USSR         | Union of Soviet Socialist Republics          |
+| UTC          | Universal Time Coordinated                   |
+| XML          | eXtensible Markup Language                   |
+
+
+**Table 25 – Abbreviations and Acronyms**
+
+© European Union 2024
+Document subject to terms of use and disclaimers p. i-ii                52
+
+
+
+
+
+
+TS-02-24-510-EN-N
+
+# LINKING SPACE TO USER NEEDS
+
+www.euspa.europa.eu
+
+@EU4Space
+
+EUSPA
+
+@space4eu
+
+#EUSpace
