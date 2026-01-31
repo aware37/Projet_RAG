@@ -24,7 +24,6 @@ Projet_RAG/
 │   ├── config.py
 │   ├── utils.py
 │   ├── rag_engine.py
-│   └── pipeline_multi_docs.py
 ├── data/
 │   ├── main/
 │   │   ├── raw/             # PDFs originaux
