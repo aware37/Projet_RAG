@@ -33,6 +33,7 @@ Projet_RAG/
 │   └── test/                # Données de test
 ├── db_multi_docs/           # Base vectorielle principale (Chroma)
 ├── db_local/                # Base vectorielle de test
+├── notebook_test.ipynb      # Notebook pour le test avec un exemple
 ├── requirements.txt         # Dépendances Python
 └── README.md
 ```
